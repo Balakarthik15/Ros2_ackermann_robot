@@ -9,6 +9,43 @@
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
+  
+  <!-- Core ROS dependencies -->
+  <depend>rclcpp</depend>
+  <depend>std_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>nav_msgs</depend>
+
+   <!-- Robot description and state publisher -->
+  <depend>robot_state_publisher</depend>
+  <depend>joint_state_publisher</depend>
+  <exec_depend>joint_state_publisher_gui</exec_depend>
+
+    <!-- URDF and xacro -->
+  <depend>urdf</depend>
+  <depend>xacro</depend>
+
+    <!-- Gazebo Harmonic (gz-sim) dependencies -->
+  <exec_depend>ros_gz_sim</exec_depend>
+  <exec_depend>ros_gz_bridge</exec_depend>
+  <exec_depend>ros_gz_image</exec_depend>
+  <exec_depend>ros_gz_interfaces</exec_depend>
+
+  <!-- TF2 for transforms -->
+  <depend>tf2</depend>
+  <depend>tf2_ros</depend>
+  <depend>tf2_geometry_msgs</depend>
+
+  <!-- RViz -->
+  <exec_depend>rviz2</exec_depend>
+
+  <!-- Navigation stack (optional, for AMCL and navigation) -->
+  <exec_depend>nav2_bringup</exec_depend>
+  <exec_depend>nav2_amcl</exec_depend>
+  <exec_depend>nav2_map_server</exec_depend>
+  <exec_depend>slam_toolbox</exec_depend>
+
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
 
