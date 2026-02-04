@@ -1,0 +1,28 @@
+[0.010s] Invoking command in '/home/karthik/Ros2_ackermann_robot/build/ackermann_gazebo': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/karthik/Ros2_ackermann_robot/build/ackermann_gazebo -- -j16 -l16
+[0.087s] Invoked command in '/home/karthik/Ros2_ackermann_robot/build/ackermann_gazebo' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --build /home/karthik/Ros2_ackermann_robot/build/ackermann_gazebo -- -j16 -l16
+[0.095s] Invoking command in '/home/karthik/Ros2_ackermann_robot/build/ackermann_gazebo': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /home/karthik/Ros2_ackermann_robot/build/ackermann_gazebo
+[0.101s] -- Install configuration: ""
+[0.102s] -- Execute custom install script
+[0.103s] -- Up-to-date symlink: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/launch/robot.launch.py
+[0.103s] -- Up-to-date symlink: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/urdf/bot.xacro
+[0.103s] -- Up-to-date symlink: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/urdf/bot_sample.xacro
+[0.103s] -- Up-to-date symlink: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/urdf/gz_ackermann_core.xacro
+[0.103s] -- Up-to-date symlink: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/urdf/vehicle.urdf.xacro
+[0.103s] -- Up-to-date symlink: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/config/robot_params.yaml
+[0.103s] -- Up-to-date symlink: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/config/ros_gz_bridge.yaml
+[0.103s] -- Up-to-date symlink: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ament_index/resource_index/package_run_dependencies/ackermann_gazebo
+[0.103s] -- Up-to-date symlink: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ament_index/resource_index/parent_prefix_path/ackermann_gazebo
+[0.104s] -- Up-to-date symlink: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/environment/ament_prefix_path.sh
+[0.104s] -- Up-to-date symlink: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/environment/ament_prefix_path.dsv
+[0.104s] -- Up-to-date symlink: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/environment/path.sh
+[0.104s] -- Up-to-date symlink: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/environment/path.dsv
+[0.104s] -- Up-to-date symlink: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/local_setup.bash
+[0.104s] -- Up-to-date symlink: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/local_setup.sh
+[0.104s] -- Up-to-date symlink: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/local_setup.zsh
+[0.104s] -- Up-to-date symlink: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/local_setup.dsv
+[0.105s] -- Symlinking: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/package.dsv
+[0.115s] -- Up-to-date symlink: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ament_index/resource_index/packages/ackermann_gazebo
+[0.115s] -- Up-to-date symlink: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/cmake/ackermann_gazeboConfig.cmake
+[0.115s] -- Up-to-date symlink: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/cmake/ackermann_gazeboConfig-version.cmake
+[0.115s] -- Up-to-date symlink: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/package.xml
+[0.116s] Invoked command in '/home/karthik/Ros2_ackermann_robot/build/ackermann_gazebo' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy /usr/bin/cmake --install /home/karthik/Ros2_ackermann_robot/build/ackermann_gazebo

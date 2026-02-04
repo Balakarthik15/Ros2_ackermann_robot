@@ -2,7 +2,7 @@
 <!-- URDF of Robot Simulation -->
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro"  name="bot_ackermann">
     <!-- Physical Description -->
-    <xacro:include filename="bot.xacro" />
+    <xacro:include filename="bot_sample.xacro" />
     <!-- Simulation -->
-    <xacro:include filename="gz_ackermann_core.xacro" />
+    <!--<xacro:include filename="gz_ackermann_core.xacro" /> -->
 </robot>

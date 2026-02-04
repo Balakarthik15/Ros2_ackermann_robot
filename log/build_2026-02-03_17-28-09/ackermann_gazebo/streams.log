@@ -1,0 +1,93 @@
+[0.021s] Invoking command in '/home/karthik/Ros2_ackermann_robot/build/ackermann_gazebo': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/karthik/ros_ws/install/ackermann_teleop:/home/karthik/ros_jazzy_ws/install/mogi_trajectory_server:/home/karthik/ros_jazzy_ws/install/bme_ros2_navigation_py:/opt/ros/jazzy /usr/bin/cmake /home/karthik/Ros2_ackermann_robot/src/ackermann_gazebo -DCMAKE_INSTALL_PREFIX=/home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo
+[0.314s] -- The C compiler identification is GNU 13.3.0
+[1.195s] -- The CXX compiler identification is GNU 13.3.0
+[1.926s] -- Detecting C compiler ABI info
+[2.331s] -- Detecting C compiler ABI info - done
+[2.345s] -- Check for working C compiler: /usr/bin/cc - skipped
+[2.346s] -- Detecting C compile features
+[2.346s] -- Detecting C compile features - done
+[2.477s] -- Detecting CXX compiler ABI info
+[2.905s] -- Detecting CXX compiler ABI info - done
+[2.918s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[2.919s] -- Detecting CXX compile features
+[2.920s] -- Detecting CXX compile features - done
+[2.933s] -- Found ament_cmake: 2.5.5 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[3.229s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[3.460s] -- Found rclcpp: 28.1.16 (/opt/ros/jazzy/share/rclcpp/cmake)
+[3.806s] -- Found rosidl_generator_c: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[3.846s] -- Found rosidl_generator_cpp: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[3.881s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[3.917s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[4.074s] -- Found rmw_implementation_cmake: 7.3.3 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[4.082s] -- Found rmw_fastrtps_cpp: 8.4.3 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[4.244s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  
+[4.567s] -- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+[4.735s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[5.085s] -- Found std_msgs: 5.3.6 (/opt/ros/jazzy/share/std_msgs/cmake)
+[5.111s] -- Found sensor_msgs: 5.3.6 (/opt/ros/jazzy/share/sensor_msgs/cmake)
+[5.194s] -- Found ros_gz_sim: 1.0.18 (/opt/ros/jazzy/share/ros_gz_sim/cmake)
+[5.487s] -- Found ros_gz_bridge: 1.0.18 (/opt/ros/jazzy/share/ros_gz_bridge/cmake)
+[5.532s] -- Looking for gz-msgs10 -- found version 10.3.2
+[5.548s] -- Searching for dependencies of gz-msgs10
+[9.099s] -- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.3")  
+[10.707s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[10.977s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[10.978s] -- Found Threads: TRUE  
+[12.947s] -- Looking for gz-utils2 -- found version 2.2.1
+[12.948s] -- Searching for dependencies of gz-utils2
+[12.956s] -- Looking for gz-math7 -- found version 7.5.2
+[12.956s] -- Searching for dependencies of gz-math7
+[12.958s] -- Looking for gz-utils2 -- found version 2.2.1
+[12.969s] -- Checking for module 'tinyxml2'
+[12.992s] --   Found tinyxml2, version 10.0.0
+[13.059s] -- Looking for gz-transport13 -- found version 13.5.0
+[13.059s] -- Searching for dependencies of gz-transport13
+[15.050s] -- Checking for module 'uuid'
+[15.075s] --   Found uuid, version 2.39.3
+[15.131s] -- Found UUID: TRUE  
+[15.131s] -- Looking for gz-utils2 -- found version 2.2.1
+[15.132s] -- Searching for dependencies of gz-utils2
+[15.132s] -- Searching for <gz-utils2> component [cli]
+[15.137s] -- Looking for gz-utils2-cli -- found version 2.2.1
+[15.137s] -- Searching for dependencies of gz-utils2-cli
+[15.139s] -- Looking for gz-msgs10 -- found version 10.3.2
+[15.418s] -- Found ament_lint_auto: 0.17.4 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[15.653s] -- Added test 'flake8' to check Python code syntax and style conventions
+[15.654s] -- Configured 'flake8' exclude dirs and/or files: 
+[15.656s] -- Added test 'lint_cmake' to check CMake code style
+[15.658s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[15.671s] -- Added test 'xmllint' to check XML markup files
+[15.681s] -- Configuring done (15.6s)
+[15.892s] -- Generating done (0.0s)
+[15.898s] -- Build files have been written to: /home/karthik/Ros2_ackermann_robot/build/ackermann_gazebo
+[15.920s] Invoked command in '/home/karthik/Ros2_ackermann_robot/build/ackermann_gazebo' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/karthik/ros_ws/install/ackermann_teleop:/home/karthik/ros_jazzy_ws/install/mogi_trajectory_server:/home/karthik/ros_jazzy_ws/install/bme_ros2_navigation_py:/opt/ros/jazzy /usr/bin/cmake /home/karthik/Ros2_ackermann_robot/src/ackermann_gazebo -DCMAKE_INSTALL_PREFIX=/home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo
+[15.922s] Invoking command in '/home/karthik/Ros2_ackermann_robot/build/ackermann_gazebo': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/karthik/ros_ws/install/ackermann_teleop:/home/karthik/ros_jazzy_ws/install/mogi_trajectory_server:/home/karthik/ros_jazzy_ws/install/bme_ros2_navigation_py:/opt/ros/jazzy /usr/bin/cmake --build /home/karthik/Ros2_ackermann_robot/build/ackermann_gazebo -- -j16 -l16
+[16.140s] Invoked command in '/home/karthik/Ros2_ackermann_robot/build/ackermann_gazebo' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/karthik/ros_ws/install/ackermann_teleop:/home/karthik/ros_jazzy_ws/install/mogi_trajectory_server:/home/karthik/ros_jazzy_ws/install/bme_ros2_navigation_py:/opt/ros/jazzy /usr/bin/cmake --build /home/karthik/Ros2_ackermann_robot/build/ackermann_gazebo -- -j16 -l16
+[16.157s] Invoking command in '/home/karthik/Ros2_ackermann_robot/build/ackermann_gazebo': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/karthik/ros_ws/install/ackermann_teleop:/home/karthik/ros_jazzy_ws/install/mogi_trajectory_server:/home/karthik/ros_jazzy_ws/install/bme_ros2_navigation_py:/opt/ros/jazzy /usr/bin/cmake --install /home/karthik/Ros2_ackermann_robot/build/ackermann_gazebo
+[16.170s] -- Install configuration: ""
+[16.170s] -- Installing: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/launch
+[16.170s] -- Installing: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/launch/robot.launch.py
+[16.171s] -- Installing: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/urdf
+[16.171s] -- Installing: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/urdf/gz_ackermann_core.xacro
+[16.171s] -- Installing: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/urdf/bot.xacro
+[16.172s] -- Installing: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/urdf/bot_sample.xacro
+[16.172s] -- Installing: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/urdf/vehicle.urdf.xacro
+[16.172s] -- Installing: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/config
+[16.172s] -- Installing: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/config/ros_gz_bridge.yaml
+[16.173s] -- Installing: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/config/robot_params.yaml
+[16.173s] -- Installing: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ament_index/resource_index/package_run_dependencies/ackermann_gazebo
+[16.174s] -- Installing: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ament_index/resource_index/parent_prefix_path/ackermann_gazebo
+[16.174s] -- Installing: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/environment/ament_prefix_path.sh
+[16.174s] -- Installing: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/environment/ament_prefix_path.dsv
+[16.175s] -- Installing: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/environment/path.sh
+[16.175s] -- Installing: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/environment/path.dsv
+[16.175s] -- Installing: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/local_setup.bash
+[16.175s] -- Installing: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/local_setup.sh
+[16.175s] -- Installing: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/local_setup.zsh
+[16.176s] -- Installing: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/local_setup.dsv
+[16.176s] -- Installing: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/package.dsv
+[16.176s] -- Installing: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ament_index/resource_index/packages/ackermann_gazebo
+[16.177s] -- Installing: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/cmake/ackermann_gazeboConfig.cmake
+[16.177s] -- Installing: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/cmake/ackermann_gazeboConfig-version.cmake
+[16.178s] -- Installing: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/package.xml
+[16.182s] Invoked command in '/home/karthik/Ros2_ackermann_robot/build/ackermann_gazebo' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/karthik/ros_ws/install/ackermann_teleop:/home/karthik/ros_jazzy_ws/install/mogi_trajectory_server:/home/karthik/ros_jazzy_ws/install/bme_ros2_navigation_py:/opt/ros/jazzy /usr/bin/cmake --install /home/karthik/Ros2_ackermann_robot/build/ackermann_gazebo
