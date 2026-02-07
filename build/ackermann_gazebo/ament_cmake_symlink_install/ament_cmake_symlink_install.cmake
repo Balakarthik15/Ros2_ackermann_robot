@@ -315,8 +315,8 @@ message(STATUS "Execute custom install script")
 
 # begin of custom install code
 
-# install(DIRECTORY "launch" "urdf" "config" "DESTINATION" "share/ackermann_gazebo")
-ament_cmake_symlink_install_directory("/home/karthik/Ros2_ackermann_robot/src/ackermann_gazebo" DIRECTORY "launch" "urdf" "config" "DESTINATION" "share/ackermann_gazebo")
+# install(DIRECTORY "launch" "urdf" "config" "worlds" "DESTINATION" "share/ackermann_gazebo")
+ament_cmake_symlink_install_directory("/home/karthik/Ros2_ackermann_robot/src/ackermann_gazebo" DIRECTORY "launch" "urdf" "config" "worlds" "DESTINATION" "share/ackermann_gazebo")
 
 # install(FILES "/home/karthik/Ros2_ackermann_robot/build/ackermann_gazebo/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/ackermann_gazebo" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 ament_cmake_symlink_install_files("/home/karthik/Ros2_ackermann_robot/src/ackermann_gazebo" FILES "/home/karthik/Ros2_ackermann_robot/build/ackermann_gazebo/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/ackermann_gazebo" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")

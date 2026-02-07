@@ -3,8 +3,11 @@
 /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/urdf/bot_sample.xacro
 /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/urdf/gz_ackermann_core.xacro
 /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/urdf/vehicle.urdf.xacro
+/home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/config/mapper_params_online_async.yaml
+/home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/config/mapper_params_online_async.yaml:Zone.Identifier
 /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/config/robot_params.yaml
 /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/config/ros_gz_bridge.yaml
+/home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/worlds/lab.sdf
 /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ament_index/resource_index/package_run_dependencies/ackermann_gazebo
 /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ament_index/resource_index/parent_prefix_path/ackermann_gazebo
 /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/environment/ament_prefix_path.sh

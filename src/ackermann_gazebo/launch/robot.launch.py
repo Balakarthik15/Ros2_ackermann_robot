@@ -52,14 +52,14 @@ def generate_launch_description():
 
 
     # 1. Declare Arguments
-    world_arg = DeclareLaunchArgument('world', default_value='empty.sdf')
+    world_arg = DeclareLaunchArgument('world', default_value='lab.sdf')
     x_arg = DeclareLaunchArgument('x', default_value='0.0')
     y_arg = DeclareLaunchArgument('y', default_value='0.0')
     z_arg = DeclareLaunchArgument('z', default_value='0.2')
     yaw_arg = DeclareLaunchArgument('Y', default_value='0.0')
 
     # 2. Retrieve Configurations
-    world_file = LaunchConfiguration('world')
+    world_file = os.path.join(package_path, 'worlds', 'lab.sdf')
     use_sim_time = LaunchConfiguration("use_sim_time")
 
 
@@ -88,6 +88,7 @@ def generate_launch_description():
             "-y", LaunchConfiguration('y'),
             "-z", LaunchConfiguration('z'),
             "-Y", LaunchConfiguration('Y'),
+            '-allow_renaming', 'false'
         ],
         output="screen",
     )
