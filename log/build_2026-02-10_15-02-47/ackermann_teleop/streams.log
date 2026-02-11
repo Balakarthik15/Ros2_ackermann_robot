@@ -1,0 +1,17 @@
+[1.198s] Invoking command in '/home/karthik/Ros2_ackermann_robot/build/ackermann_teleop': PYTHONPATH=/home/karthik/Ros2_ackermann_robot/build/ackermann_teleop/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/karthik/Ros2_ackermann_robot/install/ackermann_teleop/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/karthik/Ros2_ackermann_robot/build/ackermann_teleop/build --no-deps symlink_data
+[1.679s] running develop
+[1.988s] running egg_info
+[2.013s] writing ackermann_teleop.egg-info/PKG-INFO
+[2.014s] writing dependency_links to ackermann_teleop.egg-info/dependency_links.txt
+[2.014s] writing entry points to ackermann_teleop.egg-info/entry_points.txt
+[2.015s] writing requirements to ackermann_teleop.egg-info/requires.txt
+[2.016s] writing top-level names to ackermann_teleop.egg-info/top_level.txt
+[2.084s] reading manifest file 'ackermann_teleop.egg-info/SOURCES.txt'
+[2.085s] writing manifest file 'ackermann_teleop.egg-info/SOURCES.txt'
+[2.126s] running build_ext
+[2.127s] Creating /home/karthik/Ros2_ackermann_robot/install/ackermann_teleop/lib/python3.12/site-packages/ackermann-teleop.egg-link (link to .)
+[2.128s] Installing keyboard_teleop script to /home/karthik/Ros2_ackermann_robot/install/ackermann_teleop/lib/ackermann_teleop
+[2.128s] 
+[2.128s] Installed /home/karthik/Ros2_ackermann_robot/build/ackermann_teleop
+[2.128s] running symlink_data
+[2.170s] Invoked command in '/home/karthik/Ros2_ackermann_robot/build/ackermann_teleop' returned '0': PYTHONPATH=/home/karthik/Ros2_ackermann_robot/build/ackermann_teleop/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/karthik/Ros2_ackermann_robot/install/ackermann_teleop/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/karthik/Ros2_ackermann_robot/build/ackermann_teleop/build --no-deps symlink_data

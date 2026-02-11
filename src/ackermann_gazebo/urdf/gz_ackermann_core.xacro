@@ -133,8 +133,10 @@
         </plugin>
     </gazebo>
 
-    <!-- ================================ -->
-    <!-- ACKERMANN DRIVE PLUGIN -->
+     
+ 
+    <!-- ================================
+    <! ACKERMANN DRIVE PLUGIN -->
     <!-- ================================ -->
     <gazebo>
         <plugin filename="gz-sim-ackermann-steering-system"
@@ -142,37 +144,35 @@
             
             <!-- Wheel joints -->
             <left_joint>fr_left_wheel_joint</left_joint>
+            <left_joint>re_left_wheel_joint</left_joint>
             <right_joint>fr_right_wheel_joint</right_joint>
-            <left_rear_joint>re_left_wheel_joint</left_rear_joint>
-            <right_rear_joint>re_right_wheel_joint</right_rear_joint>
-            
+            <right_joint>re_right_wheel_joint</right_joint>
             <!-- Steering joints -->
             <left_steering_joint>fr_left_steer_joint</left_steering_joint>
             <right_steering_joint>fr_right_steer_joint</right_steering_joint>
             <steering_joint>virtual_steering_wheel_joint</steering_joint>
             
             <!-- Wheel parameters -->
-            <wheel_separation>0.504</wheel_separation>
-            <kingpin_width>0.49238</kingpin_width>
-            <wheel_base>0.54838</wheel_base>
-            <wheel_radius>0.14</wheel_radius>
+            <wheel_separation>${track_width}</wheel_separation>
+            <kingpin_width>${track_width}</kingpin_width>
+            <wheel_base>${wheelbase}</wheel_base>
+            <wheel_radius>${wheel_radius}</wheel_radius>
+
+            <min_velocity>-1</min_velocity>
+            <max_velocity>1</max_velocity>
             
             <!-- Steering limits -->
-            <max_steer>0.383972</max_steer>
-            <max_steering_angle>1.570796</max_steering_angle>
+            <steering_limit>${max_steering_angle}</steering_limit>
             
             <!-- Command and odometry topics -->
             <topic>/cmd_vel</topic>
+            <tf_topic>/tf</tf_topic>
             <odom_topic>/odom</odom_topic>
-            <odom_frame>odom</odom_frame>
-            <robot_base_frame>base_footprint</robot_base_frame>
-            
-            <!-- Publishing options -->
-            <publish_odom>true</publish_odom>
-            <publish_odom_tf>true</publish_odom_tf>
-            <publish_wheel_tf>false</publish_wheel_tf>
+            <frame_id>odom</frame_id>
+            <child_frame_id>base_footprint</child_frame_id>
+            <odom_publish_frequency>50</odom_publish_frequency>
         </plugin>
-    </gazebo>
+    </gazebo> 
 
     <!-- ================================ -->
     <!-- VIRTUAL STEERING WHEEL -->

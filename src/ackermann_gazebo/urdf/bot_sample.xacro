@@ -96,7 +96,7 @@
     <!-- ================================ -->
     <link name="fr_left_steer_link">
         <inertial>
-            <origin xyz="0 0 0" rpy="0 0 0" />
+            <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
             <mass value="${steering_mass}" />
             <inertia
                 ixx="${steering_mass/12*(3*wheel_radius*wheel_radius + wheel_thickness*wheel_thickness)}"
@@ -108,7 +108,7 @@
 
         <!-- Simple visual so it shows in RViz/Gazebo -->
         <visual>
-            <origin xyz="0 0 0" rpy="0 0 0" />
+            <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
             <geometry>
                 <cylinder radius="0.01" length="0.03"/>
             </geometry>
@@ -116,6 +116,14 @@
                 <color rgba="0.8 0.1 0.1 1"/>
             </material>
         </visual>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
+            <geometry>
+                <cylinder radius="0.01" length="0.03"/>
+            </geometry>
+        </collision>
+        
     </link>
 
     <joint name="fr_left_steer_joint" type="revolute">
@@ -123,7 +131,8 @@
         <child link="fr_left_steer_link" />
         <origin xyz="${front_axle_offset} ${half_track_width} ${-body_height/2}" rpy="0 0 0" />
         <axis xyz="0 0 1" />
-        <limit upper="${max_steering_angle}" lower="${-max_steering_angle}" effort="10.0" velocity="5.0" />
+        <limit upper="${max_steering_angle}" lower="${-max_steering_angle}" effort="10.0" velocity="2.0" />
+        <dynamics damping="0.1" friction="0.1"/>
     </joint>
 
     <!-- ================================ -->
@@ -131,7 +140,7 @@
     <!-- ================================ -->
     <link name="fr_left_wheel_link">
         <inertial>
-            <origin xyz="0 0 0" rpy="0 0 0" />
+            <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
             <mass value="${wheel_mass}" />
             <inertia
                 ixx="${wheel_mass/12*(3*wheel_radius*wheel_radius + wheel_thickness*wheel_thickness)}"
@@ -142,7 +151,7 @@
         </inertial>
 
         <visual>
-            <origin xyz="0 0 0" rpy="0 0 0" />
+            <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
             <geometry>
                 <cylinder radius="${wheel_radius}" length="${wheel_thickness}" />
             </geometry>
@@ -152,7 +161,7 @@
         </visual>
 
         <collision>
-            <origin xyz="0 0 0" rpy="0 0 0" />
+            <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
             <geometry>
                 <cylinder radius="${wheel_radius}" length="${wheel_thickness}" />
             </geometry>
@@ -162,10 +171,10 @@
     <joint name="fr_left_wheel_joint" type="continuous">
         <parent link="fr_left_steer_link" />
         <child link="fr_left_wheel_link" />
-        <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
-        <axis xyz="0 0 -1" />
-        <dynamics friction="0.8" damping="0.5" />
-        <limit lower="-3.14159" upper="3.14159" effort="70" velocity="-1" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <axis xyz="0 1 0" />
+        <dynamics friction="0.1" damping="0.1" />
+        <limit lower="-3.14159" upper="3.14159" effort="70" velocity="50" />
     </joint>
 
     <!-- ================================ -->
@@ -173,7 +182,7 @@
     <!-- ================================ -->
     <link name="fr_right_steer_link">
         <inertial>
-            <origin xyz="0 0 0" rpy="0 0 0" />
+            <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
             <mass value="${steering_mass}" />
             <inertia
                 ixx="${steering_mass/12*(3*wheel_radius*wheel_radius + wheel_thickness*wheel_thickness)}"
@@ -185,7 +194,7 @@
 
         <!-- Simple visual so it shows in RViz/Gazebo -->
         <visual>
-            <origin xyz="0 0 0" rpy="0 0 0" />
+            <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
             <geometry>
                 <cylinder radius="0.01" length="0.03"/>
             </geometry>
@@ -193,6 +202,14 @@
                 <color rgba="0.8 0.1 0.1 1"/>
             </material>
         </visual>
+
+        <collision>
+            <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
+            <geometry>
+                <cylinder radius="0.01" length="0.03"/>
+            </geometry>
+        </collision>
+
     </link>
 
     <joint name="fr_right_steer_joint" type="revolute">
@@ -200,7 +217,8 @@
         <child link="fr_right_steer_link" />
         <origin xyz="${front_axle_offset} ${-half_track_width} ${-body_height/2}" rpy="0 0 0" />
         <axis xyz="0 0 1" />
-        <limit upper="${max_steering_angle}" lower="${-max_steering_angle}" effort="10.0" velocity="5.0" />
+        <limit upper="${max_steering_angle}" lower="${-max_steering_angle}" effort="10.0" velocity="2.0" />
+        <dynamics damping="0.1" friction="0.1"/>
     </joint>
 
     <!-- ================================ -->
@@ -208,7 +226,7 @@
     <!-- ================================ -->
     <link name="fr_right_wheel_link">
         <inertial>
-            <origin xyz="0 0 0" rpy="0 0 0" />
+            <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
             <mass value="${wheel_mass}" />
             <inertia
                 ixx="${wheel_mass/12*(3*wheel_radius*wheel_radius + wheel_thickness*wheel_thickness)}"
@@ -219,7 +237,7 @@
         </inertial>
 
         <visual>
-            <origin xyz="0 0 0" rpy="0 0 0" />
+            <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
             <geometry>
                 <cylinder radius="${wheel_radius}" length="${wheel_thickness}" />
             </geometry>
@@ -229,7 +247,7 @@
         </visual>
 
         <collision>
-            <origin xyz="0 0 0" rpy="0 0 0" />
+            <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
             <geometry>
                 <cylinder radius="${wheel_radius}" length="${wheel_thickness}" />
             </geometry>
@@ -239,10 +257,10 @@
     <joint name="fr_right_wheel_joint" type="continuous">
         <parent link="fr_right_steer_link" />
         <child link="fr_right_wheel_link" />
-        <origin xyz="0 0 0" rpy="${-pi/2} 0 0" />
-        <axis xyz="0 0 1" />
-        <dynamics friction="0.8" damping="0.5" />
-        <limit lower="-3.14159" upper="3.14159" effort="70" velocity="-1" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <axis xyz="0 1 0" />
+        <dynamics friction="0.1" damping="0.1" />
+        <limit lower="-3.14159" upper="3.14159" effort="70" velocity="50" />
     </joint>
 
     <!-- ================================ -->
@@ -250,7 +268,7 @@
     <!-- ================================ -->
     <link name="re_left_wheel_link">
         <inertial>
-            <origin xyz="0 0 0" rpy="0 0 0" />
+            <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
             <mass value="${wheel_mass}" />
             <inertia
                 ixx="${wheel_mass/12*(3*wheel_radius*wheel_radius + wheel_thickness*wheel_thickness)}"
@@ -261,7 +279,7 @@
         </inertial>
 
         <visual>
-            <origin xyz="0 0 0" rpy="0 0 0" />
+            <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
             <geometry>
                 <cylinder radius="${wheel_radius}" length="${wheel_thickness}" />
             </geometry>
@@ -271,7 +289,7 @@
         </visual>
 
         <collision>
-            <origin xyz="0 0 0" rpy="0 0 0" />
+            <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
             <geometry>
                 <cylinder radius="${wheel_radius}" length="${wheel_thickness}" />
             </geometry>
@@ -281,10 +299,10 @@
     <joint name="re_left_wheel_joint" type="continuous">
         <parent link="chassis_link" />
         <child link="re_left_wheel_link" />
-        <origin xyz="${rear_axle_offset} ${half_track_width} ${-body_height/2}" rpy="${pi/2} 0 0" />
-        <axis xyz="0 0 -1" />
-        <dynamics friction="0.8" damping="0.5" />
-        <limit lower="-3.14159" upper="3.14159" effort="70" velocity="-1" />
+        <origin xyz="${rear_axle_offset} ${half_track_width} ${-body_height/2}" rpy="0 0 0" />
+        <axis xyz="0 1 0" />
+        <dynamics friction="0.1" damping="0.1" />
+        <limit lower="-3.14159" upper="3.14159" effort="70" velocity="50" />
     </joint>
 
     <!-- ================================ -->
@@ -292,7 +310,7 @@
     <!-- ================================ -->
     <link name="re_right_wheel_link">
         <inertial>
-            <origin xyz="0 0 0" rpy="0 0 0" />
+            <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
             <mass value="${wheel_mass}" />
             <inertia
                 ixx="${wheel_mass/12*(3*wheel_radius*wheel_radius + wheel_thickness*wheel_thickness)}"
@@ -303,7 +321,7 @@
         </inertial>
 
         <visual>
-            <origin xyz="0 0 0" rpy="0 0 0" />
+            <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
             <geometry>
                 <cylinder radius="${wheel_radius}" length="${wheel_thickness}" />
             </geometry>
@@ -313,7 +331,7 @@
         </visual>
 
         <collision>
-            <origin xyz="0 0 0" rpy="0 0 0" />
+            <origin xyz="0 0 0" rpy="${pi/2} 0 0" />
             <geometry>
                 <cylinder radius="${wheel_radius}" length="${wheel_thickness}" />
             </geometry>
@@ -323,10 +341,10 @@
     <joint name="re_right_wheel_joint" type="continuous">
         <parent link="chassis_link" />
         <child link="re_right_wheel_link" />
-        <origin xyz="${rear_axle_offset} ${-half_track_width} ${-body_height/2}" rpy="${-pi/2} 0 0" />
-        <axis xyz="0 0 1" />
-        <dynamics friction="0.8" damping="0.5" />
-        <limit lower="-3.14159" upper="3.14159" effort="70" velocity="-1" />
+        <origin xyz="${rear_axle_offset} ${-half_track_width} ${-body_height/2}" rpy="0 0 0" />
+        <axis xyz="0 1 0" />
+        <dynamics friction="0.1" damping="0.1" />
+        <limit lower="-3.14159" upper="3.14159" effort="70" velocity="50" />
     </joint>
 
     <!-- ================================ -->
@@ -405,12 +423,12 @@
     
     <!-- Chassis -->
     <gazebo reference="chassis_link">
-        <mu1>0.5</mu1>
-        <mu2>0.5</mu2>
+        <mu1>0.001</mu1>
+        <mu2>0.001</mu2>
         <material>Gazebo/Grey</material>
     </gazebo>
     
-    <!-- Steering links -->
+    <!-- Steering links
     <gazebo reference="fr_left_steer_link">
         <mu1>0.1</mu1>
         <mu2>0.1</mu2>
@@ -422,30 +440,30 @@
         <mu2>0.1</mu2>
         <material>Gazebo/Black</material>
     </gazebo>
-    
+     -->
     <!-- Front wheels -->
     <gazebo reference="fr_left_wheel_link">
-        <mu1>1.5</mu1>
-        <mu2>1.5</mu2>
+        <mu1>1.0</mu1>
+        <mu2>1.0</mu2>
         <material>Gazebo/DarkGrey</material>
     </gazebo>
     
     <gazebo reference="fr_right_wheel_link">
-        <mu1>1.5</mu1>
-        <mu2>1.5</mu2>
+        <mu1>1.0</mu1>
+        <mu2>1.0</mu2>
         <material>Gazebo/DarkGrey</material>
     </gazebo>
     
     <!-- Rear wheels -->
     <gazebo reference="re_left_wheel_link">
-        <mu1>1.5</mu1>
-        <mu2>1.5</mu2>
+        <mu1>1.0</mu1>
+        <mu2>1.0</mu2>
         <material>Gazebo/DarkGrey</material>
     </gazebo>
     
     <gazebo reference="re_right_wheel_link">
-        <mu1>1.5</mu1>
-        <mu2>1.5</mu2>
+        <mu1>1.0</mu1>
+        <mu2>1.0</mu2>
         <material>Gazebo/DarkGrey</material>
     </gazebo>
     
@@ -508,44 +526,72 @@
     </gazebo>
 
 
-    <!-- ================================ -->
-    <!-- ACKERMANN DRIVE PLUGIN -->
-    <!-- ================================ -->
-    <gazebo>
-        <plugin filename="gz-sim-ackermann-steering-system"
-            name="gz::sim::systems::AckermannSteering">
+        <!-- Gazebo Control -->
+    <ros2_control name="control" type="system">
+        <hardware>
+            <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+        </hardware>
             
-            <!-- Wheel joints -->
-            <left_joint>fr_left_wheel_joint</left_joint>
-            <left_joint>re_left_wheel_joint</left_joint>
-            <right_joint>fr_right_wheel_joint</right_joint>
-            <right_joint>re_right_wheel_joint</right_joint>
-            <!-- Steering joints -->
-            <left_steering_joint>fr_left_steer_joint</left_steering_joint>
-            <right_steering_joint>fr_right_steer_joint</right_steering_joint>
-            <steering_joint>virtual_steering_wheel_joint</steering_joint>
-            
-            <!-- Wheel parameters -->
-            <wheel_separation>${track_width}</wheel_separation>
-            <kingpin_width>${track_width}</kingpin_width>
-            <wheel_base>${wheelbase}</wheel_base>
-            <wheel_radius>${wheel_radius}</wheel_radius>
+        <joint name="fr_left_steer_joint">
+            <command_interface name="position">
+                <!-- <param name="min">${-max_steering_angle}</param>
+                <param name="max">${max_steering_angle}</param> -->
+            </command_interface>
 
-            <min_velocity>-1</min_velocity>
-            <max_velocity>1</max_velocity>
-            
-            <!-- Steering limits -->
-            <steering_limit>${max_steering_angle}</steering_limit>
-            
-            <!-- Command and odometry topics -->
-            <topic>/cmd_vel</topic>
-            <tf_topic>/tf</tf_topic>
-            <odom_topic>/odom</odom_topic>
-            <frame_id>odom</frame_id>
-            <child_frame_id>base_footprint</child_frame_id>
-            <odom_publish_frequency>50</odom_publish_frequency>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+            <state_interface name="effort"/>
+        </joint>
+
+        <joint name="fr_right_steer_joint">
+            <command_interface name="position">
+                <!-- <param name="min">${-max_steering_angle}</param>
+                <param name="max">${max_steering_angle}</param> -->
+            </command_interface>
+
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+            <state_interface name="effort"/>
+        </joint>
+
+        <joint name="re_left_wheel_joint">
+            <command_interface name="velocity">
+                <!-- <param name="min">${-max_wheel_angular_velocity}</param>
+                <param name="max">${max_wheel_angular_velocity}</param> -->
+            </command_interface>
+
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+            <state_interface name="effort"/>
+        </joint>
+
+        <joint name="re_right_wheel_joint">
+            <command_interface name="velocity">
+                <!-- <param name="min">${-max_wheel_angular_velocity}</param>
+                <param name="max">${max_wheel_angular_velocity}</param> -->
+            </command_interface>
+
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+            <state_interface name="effort"/>
+        </joint>
+    </ros2_control>
+
+    
+
+    <gazebo>
+        <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+            <parameters> $(find ackermann_gazebo)/config/gz_ros2_control.yaml</parameters>
+        
+            <ros>
+                <remapping>ackermann_steering_controller/tf_odometry:=/tf</remapping>
+                <remapping>ackermann_steering_controller/odometry:=/odom</remapping>
+
+            </ros>
         </plugin>
     </gazebo>
+
+
 
     <gazebo>
         <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
@@ -554,3 +600,10 @@
   </gazebo>
 
 </robot>
+
+
+
+
+
+
+  

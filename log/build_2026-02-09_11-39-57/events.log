@@ -1,0 +1,184 @@
+[0.000000] (-) TimerEvent: {}
+[0.000550] (ackermann_gazebo) JobQueued: {'identifier': 'ackermann_gazebo', 'dependencies': OrderedDict()}
+[0.000587] (ackermann_gazebo) JobStarted: {'identifier': 'ackermann_gazebo'}
+[0.005754] (ackermann_gazebo) JobProgress: {'identifier': 'ackermann_gazebo', 'progress': 'cmake'}
+[0.007352] (ackermann_gazebo) Command: {'cmd': ['/usr/bin/cmake', '/home/karthik/Ros2_ackermann_robot/src/ackermann_gazebo', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo'], 'cwd': '/home/karthik/Ros2_ackermann_robot/build/ackermann_gazebo', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'GZ_SIM_RESOURCE_PATH': '/opt/ros/jazzy/share', 'USER': 'karthik', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/karthik', 'OLDPWD': '/home/karthik', 'ROS_PYTHON_VERSION': '3', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'WSL_DISTRO_NAME': 'Ubuntu-24.04', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/karthik/Ros2_ackermann_robot/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'karthik', 'NAME': 'BOOK-PN5SMJLK3D', 'WSL_INTEROP': '/run/WSL/20211_interop', 'PULSE_SERVER': 'unix:/mnt/wslg/PulseServer', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm-256color', 'PATH': '/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/Graphviz/bin:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/PuTTY/:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/Users/msbka/anaconda3:/mnt/c/Users/msbka/anaconda3/Scripts:/mnt/c/Users/msbka/anaconda3/Library/bin:/mnt/c/Users/msbka/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/msbka/AppData/Local/Microsoft/WindowsApps:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000/', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'AMENT_PREFIX_PATH': '/home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/home/karthik/Ros2_ackermann_robot/build/ackermann_gazebo', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'WSL2_GUI_APPS_ENABLED': '1', 'HOSTTYPE': 'x86_64', 'CMAKE_PREFIX_PATH': '/home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy', 'WSLENV': ''}), 'shell': False}
+[0.099419] (-) TimerEvent: {}
+[0.199674] (-) TimerEvent: {}
+[0.228445] (ackermann_gazebo) StdoutLine: {'line': b'-- The C compiler identification is GNU 13.3.0\n'}
+[0.299803] (-) TimerEvent: {}
+[0.400145] (-) TimerEvent: {}
+[0.500575] (-) TimerEvent: {}
+[0.601134] (-) TimerEvent: {}
+[0.701843] (-) TimerEvent: {}
+[0.802652] (-) TimerEvent: {}
+[0.902941] (-) TimerEvent: {}
+[1.003397] (-) TimerEvent: {}
+[1.103752] (-) TimerEvent: {}
+[1.181820] (ackermann_gazebo) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 13.3.0\n'}
+[1.203859] (-) TimerEvent: {}
+[1.304138] (-) TimerEvent: {}
+[1.404411] (-) TimerEvent: {}
+[1.504743] (-) TimerEvent: {}
+[1.534250] (ackermann_gazebo) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[1.604852] (-) TimerEvent: {}
+[1.705154] (-) TimerEvent: {}
+[1.711818] (ackermann_gazebo) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[1.717004] (ackermann_gazebo) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[1.718206] (ackermann_gazebo) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[1.719024] (ackermann_gazebo) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[1.805354] (-) TimerEvent: {}
+[1.819039] (ackermann_gazebo) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[1.905475] (-) TimerEvent: {}
+[1.964658] (ackermann_gazebo) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[1.970111] (ackermann_gazebo) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[1.970281] (ackermann_gazebo) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[1.970598] (ackermann_gazebo) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[1.973709] (ackermann_gazebo) StdoutLine: {'line': b'-- Found ament_cmake: 2.5.5 (/opt/ros/jazzy/share/ament_cmake/cmake)\n'}
+[2.005662] (-) TimerEvent: {}
+[2.075898] (ackermann_gazebo) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter \n'}
+[2.105777] (-) TimerEvent: {}
+[2.126973] (ackermann_gazebo) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[2.160013] (ackermann_gazebo) StdoutLine: {'line': b'-- Found rclcpp: 28.1.16 (/opt/ros/jazzy/share/rclcpp/cmake)\n'}
+[2.205902] (-) TimerEvent: {}
+[2.277131] (ackermann_gazebo) StdoutLine: {'line': b'-- Found rosidl_generator_c: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)\n'}
+[2.288119] (ackermann_gazebo) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)\n'}
+[2.302269] (ackermann_gazebo) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[2.306034] (-) TimerEvent: {}
+[2.316427] (ackermann_gazebo) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[2.376468] (ackermann_gazebo) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 7.3.3 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)\n'}
+[2.379820] (ackermann_gazebo) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 8.4.3 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)\n'}
+[2.406221] (-) TimerEvent: {}
+[2.440589] (ackermann_gazebo) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  \n'}
+[2.506424] (-) TimerEvent: {}
+[2.606740] (-) TimerEvent: {}
+[2.631331] (ackermann_gazebo) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") \n'}
+[2.706875] (-) TimerEvent: {}
+[2.726415] (ackermann_gazebo) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[2.807001] (-) TimerEvent: {}
+[2.883477] (ackermann_gazebo) StdoutLine: {'line': b'-- Found std_msgs: 5.3.6 (/opt/ros/jazzy/share/std_msgs/cmake)\n'}
+[2.893431] (ackermann_gazebo) StdoutLine: {'line': b'-- Found sensor_msgs: 5.3.6 (/opt/ros/jazzy/share/sensor_msgs/cmake)\n'}
+[2.907123] (-) TimerEvent: {}
+[2.924919] (ackermann_gazebo) StdoutLine: {'line': b'-- Found ros_gz_sim: 1.0.18 (/opt/ros/jazzy/share/ros_gz_sim/cmake)\n'}
+[3.007352] (-) TimerEvent: {}
+[3.036244] (ackermann_gazebo) StdoutLine: {'line': b'-- Found ros_gz_bridge: 1.0.18 (/opt/ros/jazzy/share/ros_gz_bridge/cmake)\n'}
+[3.053711] (ackermann_gazebo) StdoutLine: {'line': b'-- Looking for gz-msgs10 -- found version 10.3.2\n'}
+[3.058226] (ackermann_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-msgs10\n'}
+[3.107470] (-) TimerEvent: {}
+[3.207756] (-) TimerEvent: {}
+[3.308052] (-) TimerEvent: {}
+[3.408322] (-) TimerEvent: {}
+[3.508649] (-) TimerEvent: {}
+[3.608926] (-) TimerEvent: {}
+[3.709200] (-) TimerEvent: {}
+[3.809491] (-) TimerEvent: {}
+[3.909813] (-) TimerEvent: {}
+[4.010093] (-) TimerEvent: {}
+[4.110382] (-) TimerEvent: {}
+[4.210702] (-) TimerEvent: {}
+[4.311023] (-) TimerEvent: {}
+[4.411319] (-) TimerEvent: {}
+[4.511677] (-) TimerEvent: {}
+[4.573549] (ackermann_gazebo) StdoutLine: {'line': b'-- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.3")  \n'}
+[4.611789] (-) TimerEvent: {}
+[4.712134] (-) TimerEvent: {}
+[4.812413] (-) TimerEvent: {}
+[4.912679] (-) TimerEvent: {}
+[5.012983] (-) TimerEvent: {}
+[5.113252] (-) TimerEvent: {}
+[5.198744] (ackermann_gazebo) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[5.213381] (-) TimerEvent: {}
+[5.313903] (-) TimerEvent: {}
+[5.414546] (-) TimerEvent: {}
+[5.514914] (ackermann_gazebo) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[5.515054] (-) TimerEvent: {}
+[5.515417] (ackermann_gazebo) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[5.615231] (-) TimerEvent: {}
+[5.715715] (-) TimerEvent: {}
+[5.816272] (-) TimerEvent: {}
+[5.916659] (-) TimerEvent: {}
+[6.017024] (-) TimerEvent: {}
+[6.117282] (-) TimerEvent: {}
+[6.217615] (-) TimerEvent: {}
+[6.318001] (-) TimerEvent: {}
+[6.413121] (ackermann_gazebo) StdoutLine: {'line': b'-- Looking for gz-utils2 -- found version 2.2.1\n'}
+[6.413280] (ackermann_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-utils2\n'}
+[6.414907] (ackermann_gazebo) StdoutLine: {'line': b'-- Looking for gz-math7 -- found version 7.5.2\n'}
+[6.414997] (ackermann_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-math7\n'}
+[6.415171] (ackermann_gazebo) StdoutLine: {'line': b'-- Looking for gz-utils2 -- found version 2.2.1\n'}
+[6.418107] (-) TimerEvent: {}
+[6.419201] (ackermann_gazebo) StdoutLine: {'line': b"-- Checking for module 'tinyxml2'\n"}
+[6.428878] (ackermann_gazebo) StdoutLine: {'line': b'--   Found tinyxml2, version 10.0.0\n'}
+[6.455386] (ackermann_gazebo) StdoutLine: {'line': b'-- Looking for gz-transport13 -- found version 13.5.0\n'}
+[6.455638] (ackermann_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-transport13\n'}
+[6.518240] (-) TimerEvent: {}
+[6.618543] (-) TimerEvent: {}
+[6.718880] (-) TimerEvent: {}
+[6.819156] (-) TimerEvent: {}
+[6.919427] (-) TimerEvent: {}
+[7.019699] (-) TimerEvent: {}
+[7.119982] (-) TimerEvent: {}
+[7.220269] (-) TimerEvent: {}
+[7.234820] (ackermann_gazebo) StdoutLine: {'line': b"-- Checking for module 'uuid'\n"}
+[7.244634] (ackermann_gazebo) StdoutLine: {'line': b'--   Found uuid, version 2.39.3\n'}
+[7.265635] (ackermann_gazebo) StdoutLine: {'line': b'-- Found UUID: TRUE  \n'}
+[7.265873] (ackermann_gazebo) StdoutLine: {'line': b'-- Looking for gz-utils2 -- found version 2.2.1\n'}
+[7.265949] (ackermann_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-utils2\n'}
+[7.266096] (ackermann_gazebo) StdoutLine: {'line': b'-- Searching for <gz-utils2> component [cli]\n'}
+[7.267453] (ackermann_gazebo) StdoutLine: {'line': b'-- Looking for gz-utils2-cli -- found version 2.2.1\n'}
+[7.267529] (ackermann_gazebo) StdoutLine: {'line': b'-- Searching for dependencies of gz-utils2-cli\n'}
+[7.268080] (ackermann_gazebo) StdoutLine: {'line': b'-- Looking for gz-msgs10 -- found version 10.3.2\n'}
+[7.320466] (-) TimerEvent: {}
+[7.386003] (ackermann_gazebo) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.17.4 (/opt/ros/jazzy/share/ament_lint_auto/cmake)\n'}
+[7.420624] (-) TimerEvent: {}
+[7.473687] (ackermann_gazebo) StdoutLine: {'line': b"-- Added test 'flake8' to check Python code syntax and style conventions\n"}
+[7.473837] (ackermann_gazebo) StdoutLine: {'line': b"-- Configured 'flake8' exclude dirs and/or files: \n"}
+[7.474934] (ackermann_gazebo) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[7.475630] (ackermann_gazebo) StdoutLine: {'line': b"-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257\n"}
+[7.477108] (ackermann_gazebo) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[7.478856] (ackermann_gazebo) StdoutLine: {'line': b'-- Configuring done (7.5s)\n'}
+[7.520945] (-) TimerEvent: {}
+[7.608271] (ackermann_gazebo) StdoutLine: {'line': b'-- Generating done (0.0s)\n'}
+[7.610578] (ackermann_gazebo) StdoutLine: {'line': b'-- Build files have been written to: /home/karthik/Ros2_ackermann_robot/build/ackermann_gazebo\n'}
+[7.619643] (ackermann_gazebo) CommandEnded: {'returncode': 0}
+[7.620106] (ackermann_gazebo) JobProgress: {'identifier': 'ackermann_gazebo', 'progress': 'build'}
+[7.620665] (ackermann_gazebo) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/karthik/Ros2_ackermann_robot/build/ackermann_gazebo', '--', '-j16', '-l16'], 'cwd': '/home/karthik/Ros2_ackermann_robot/build/ackermann_gazebo', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'GZ_SIM_RESOURCE_PATH': '/opt/ros/jazzy/share', 'USER': 'karthik', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/karthik', 'OLDPWD': '/home/karthik', 'ROS_PYTHON_VERSION': '3', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'WSL_DISTRO_NAME': 'Ubuntu-24.04', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/karthik/Ros2_ackermann_robot/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'karthik', 'NAME': 'BOOK-PN5SMJLK3D', 'WSL_INTEROP': '/run/WSL/20211_interop', 'PULSE_SERVER': 'unix:/mnt/wslg/PulseServer', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm-256color', 'PATH': '/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/Graphviz/bin:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/PuTTY/:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/Users/msbka/anaconda3:/mnt/c/Users/msbka/anaconda3/Scripts:/mnt/c/Users/msbka/anaconda3/Library/bin:/mnt/c/Users/msbka/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/msbka/AppData/Local/Microsoft/WindowsApps:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000/', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'AMENT_PREFIX_PATH': '/home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/home/karthik/Ros2_ackermann_robot/build/ackermann_gazebo', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'WSL2_GUI_APPS_ENABLED': '1', 'HOSTTYPE': 'x86_64', 'CMAKE_PREFIX_PATH': '/home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy', 'WSLENV': ''}), 'shell': False}
+[7.621073] (-) TimerEvent: {}
+[7.721463] (-) TimerEvent: {}
+[7.788360] (ackermann_gazebo) CommandEnded: {'returncode': 0}
+[7.788900] (ackermann_gazebo) JobProgress: {'identifier': 'ackermann_gazebo', 'progress': 'install'}
+[7.794743] (ackermann_gazebo) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/karthik/Ros2_ackermann_robot/build/ackermann_gazebo'], 'cwd': '/home/karthik/Ros2_ackermann_robot/build/ackermann_gazebo', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'GZ_SIM_RESOURCE_PATH': '/opt/ros/jazzy/share', 'USER': 'karthik', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/karthik', 'OLDPWD': '/home/karthik', 'ROS_PYTHON_VERSION': '3', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'WSL_DISTRO_NAME': 'Ubuntu-24.04', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/karthik/Ros2_ackermann_robot/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'karthik', 'NAME': 'BOOK-PN5SMJLK3D', 'WSL_INTEROP': '/run/WSL/20211_interop', 'PULSE_SERVER': 'unix:/mnt/wslg/PulseServer', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'TERM': 'xterm-256color', 'PATH': '/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/Graphviz/bin:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/PuTTY/:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/Users/msbka/anaconda3:/mnt/c/Users/msbka/anaconda3/Scripts:/mnt/c/Users/msbka/anaconda3/Library/bin:/mnt/c/Users/msbka/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/msbka/AppData/Local/Microsoft/WindowsApps:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1000/', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'AMENT_PREFIX_PATH': '/home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/home/karthik/Ros2_ackermann_robot/build/ackermann_gazebo', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'WSL2_GUI_APPS_ENABLED': '1', 'HOSTTYPE': 'x86_64', 'CMAKE_PREFIX_PATH': '/home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy', 'WSLENV': ''}), 'shell': False}
+[7.800507] (ackermann_gazebo) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[7.800797] (ackermann_gazebo) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[7.801845] (ackermann_gazebo) StdoutLine: {'line': b'-- Symlinking: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/launch/navigation.launch.py\n'}
+[7.807707] (ackermann_gazebo) StdoutLine: {'line': b'-- Symlinking: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/launch/robot.launch.py\n'}
+[7.813968] (ackermann_gazebo) StdoutLine: {'line': b'-- Symlinking: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/urdf/bot.xacro\n'}
+[7.819724] (ackermann_gazebo) StdoutLine: {'line': b'-- Symlinking: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/urdf/bot_sample.xacro\n'}
+[7.821549] (-) TimerEvent: {}
+[7.826716] (ackermann_gazebo) StdoutLine: {'line': b'-- Symlinking: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/urdf/gz_ackermann_core.xacro\n'}
+[7.833563] (ackermann_gazebo) StdoutLine: {'line': b'-- Symlinking: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/urdf/vehicle.urdf.xacro\n'}
+[7.840753] (ackermann_gazebo) StdoutLine: {'line': b'-- Symlinking: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/config/gz_ros2_control.yaml\n'}
+[7.847356] (ackermann_gazebo) StdoutLine: {'line': b'-- Symlinking: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/config/mapper_params_online_async.yaml\n'}
+[7.853092] (ackermann_gazebo) StdoutLine: {'line': b'-- Symlinking: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/config/nav2_params.yaml\n'}
+[7.859221] (ackermann_gazebo) StdoutLine: {'line': b'-- Symlinking: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/config/robot_params.yaml\n'}
+[7.865105] (ackermann_gazebo) StdoutLine: {'line': b'-- Symlinking: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/config/ros_gz_bridge.yaml\n'}
+[7.871395] (ackermann_gazebo) StdoutLine: {'line': b'-- Symlinking: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/worlds/lab.sdf\n'}
+[7.879176] (ackermann_gazebo) StdoutLine: {'line': b'-- Symlinking: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ament_index/resource_index/package_run_dependencies/ackermann_gazebo\n'}
+[7.885742] (ackermann_gazebo) StdoutLine: {'line': b'-- Symlinking: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ament_index/resource_index/parent_prefix_path/ackermann_gazebo\n'}
+[7.891933] (ackermann_gazebo) StdoutLine: {'line': b'-- Symlinking: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/environment/ament_prefix_path.sh\n'}
+[7.899122] (ackermann_gazebo) StdoutLine: {'line': b'-- Symlinking: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/environment/ament_prefix_path.dsv\n'}
+[7.905568] (ackermann_gazebo) StdoutLine: {'line': b'-- Symlinking: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/environment/path.sh\n'}
+[7.911580] (ackermann_gazebo) StdoutLine: {'line': b'-- Symlinking: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/environment/path.dsv\n'}
+[7.917772] (ackermann_gazebo) StdoutLine: {'line': b'-- Symlinking: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/local_setup.bash\n'}
+[7.921664] (-) TimerEvent: {}
+[7.924288] (ackermann_gazebo) StdoutLine: {'line': b'-- Symlinking: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/local_setup.sh\n'}
+[7.930633] (ackermann_gazebo) StdoutLine: {'line': b'-- Symlinking: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/local_setup.zsh\n'}
+[7.937078] (ackermann_gazebo) StdoutLine: {'line': b'-- Symlinking: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/local_setup.dsv\n'}
+[7.944482] (ackermann_gazebo) StdoutLine: {'line': b'-- Symlinking: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/package.dsv\n'}
+[7.951933] (ackermann_gazebo) StdoutLine: {'line': b'-- Symlinking: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ament_index/resource_index/packages/ackermann_gazebo\n'}
+[7.958917] (ackermann_gazebo) StdoutLine: {'line': b'-- Symlinking: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/cmake/ackermann_gazeboConfig.cmake\n'}
+[7.965664] (ackermann_gazebo) StdoutLine: {'line': b'-- Symlinking: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/cmake/ackermann_gazeboConfig-version.cmake\n'}
+[7.972666] (ackermann_gazebo) StdoutLine: {'line': b'-- Symlinking: /home/karthik/Ros2_ackermann_robot/install/ackermann_gazebo/share/ackermann_gazebo/package.xml\n'}
+[7.980437] (ackermann_gazebo) CommandEnded: {'returncode': 0}
+[7.990414] (ackermann_gazebo) JobEnded: {'identifier': 'ackermann_gazebo', 'rc': 0}
+[7.991285] (-) EventReactorShutdown: {}
