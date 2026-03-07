@@ -1,14 +1,12 @@
-# 🤖 ROS2 Ackermann Robot
+# 🤖 ROS 2 Ackermann Robot
 
-> A complete ROS 2 simulation and control stack for an Ackermann-steering mobile robot — featuring URDF modeling, Gazebo simulation, autonomous navigation via Nav2, and real-time teleoperation.
+> A complete ROS 2 simulation and autonomous navigation stack for a car-like Ackermann-steering robot — featuring a parametric URDF model, Gazebo Harmonic simulation, `gz_ros2_control` hardware interface, GPU LiDAR sensing, SLAM-based mapping, and Nav2 autonomous navigation.
 
 ---
 
-<!-- TODO: Replace badge URLs with your actual repo path after making it public -->
-[![ROS2 Humble](https://img.shields.io/badge/ROS2-Humble-blue?logo=ros)](https://docs.ros.org/en/humble/)
-[![Gazebo](https://img.shields.io/badge/Simulator-Gazebo-orange)](https://gazebosim.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/Balakarthik15/Ros2_ackermann_robot/actions)
+[![ROS2 Jazzy](https://img.shields.io/badge/ROS2-Jazzy-blue?logo=ros)](https://docs.ros.org/en/jazzy/)
+[![Gazebo Harmonic](https://img.shields.io/badge/Gazebo-Harmonic-orange)](https://gazebosim.org/docs/harmonic/)
+[![Ubuntu 24.04](https://img.shields.io/badge/Ubuntu-24.04%20LTS-E95420?logo=ubuntu)](https://releases.ubuntu.com/24.04/)
 [![Issues](https://img.shields.io/github/issues/Balakarthik15/Ros2_ackermann_robot)](https://github.com/Balakarthik15/Ros2_ackermann_robot/issues)
 [![Stars](https://img.shields.io/github/stars/Balakarthik15/Ros2_ackermann_robot?style=social)](https://github.com/Balakarthik15/Ros2_ackermann_robot/stargazers)
 
@@ -23,7 +21,7 @@
 - [Installation Guide](#installation-guide)
 - [Usage Instructions](#usage-instructions)
 - [Configuration](#configuration)
-- [ROS 2 Topics, Services & Parameters](#ros-2-topics-services--parameters)
+- [ROS 2 Topics, Services & TF Tree](#ros-2-topics-services--tf-tree)
 - [Screenshots & Demo](#screenshots--demo)
 - [Roadmap](#roadmap)
 - [Contributing](#contributing)
@@ -37,30 +35,30 @@
 
 ## Overview
 
-**ROS2 Ackermann Robot** is a robotics simulation and control project built on ROS 2 (Robot Operating System 2). It implements an Ackermann-steering vehicle — the same kinematic model used in cars and RC platforms — and brings it to life with a full simulation pipeline:
+**ROS 2 Ackermann Robot** is a robotics simulation project built on **ROS 2 Jazzy** and **Gazebo Harmonic**. It models the *Maverick Quantum XT* — a compact, car-like robot using the Ackermann steering geometry found in real vehicles — and brings it to life with a complete simulation and autonomy stack:
 
-- A parametric **URDF/Xacro robot description** with realistic link/joint geometry
-- **Gazebo** physics simulation with `ros2_control` hardware interface plugins
-- **Ackermann steering kinematics** converting speed and steering angle into individual wheel commands
-- **Nav2-compatible** setup for autonomous point-to-point navigation
-- **Teleoperation** support via keyboard or joystick
+- A fully parametric **URDF/Xacro robot model** with physically accurate chassis, wheels, steering links, and an onboard GPU LiDAR
+- **Gazebo Harmonic** physics simulation using the `gz_ros2_control` hardware interface plugin
+- **Ackermann Steering Controller** (`ros2_controllers`) for independent front-wheel steering and rear-wheel drive
+- A custom **keyboard teleoperation** node (`ackermann_teleop`) for real-time manual control
+- **SLAM Toolbox** online async mapping to build maps of the simulation environment
+- **Nav2** autonomous navigation with a pre-built map and AMCL-ready configuration
 
-This project is ideal for robotics students, researchers, and developers who want a clean, well-structured starting point for building car-like autonomous systems in ROS 2.
-
-> ⚠️ **Note to maintainer:** Please fill in any project-specific details marked with `<!-- TODO -->` throughout this README.
+This project provides a production-quality, developer-friendly starting point for anyone building car-like autonomous systems in ROS 2.
 
 ---
 
 ## Key Features
 
-- 🚗 **Ackermann Steering Kinematics** — Physically accurate front-wheel steering geometry; inner and outer wheel angles computed independently
-- 🏗️ **Full URDF/Xacro Model** — Modular robot description with parameterised dimensions, materials, and inertia tensors
-- 🌍 **Gazebo Simulation** — Plug-and-play simulation world with differential/Ackermann drive plugins and sensor integration
-- 🎮 **Keyboard Teleoperation** — Drive the robot in simulation using WASD or arrow keys via `teleop_twist_keyboard`
-- 🗺️ **Nav2 Integration** — Pre-configured launch files for SLAM-based mapping and autonomous navigation <!-- TODO: Confirm if Nav2/SLAM is implemented -->
-- 📡 **Sensor Suite** — LiDAR, IMU, and camera sensor plugins configured in Gazebo <!-- TODO: Confirm which sensors are modelled -->
-- 🔄 **ros2_control Compatible** — Hardware interface ready for transitioning from simulation to real hardware
-- 📦 **Colcon Workspace** — Standard ROS 2 workspace layout, installable with a single `colcon build`
+-  **Ackermann Steering Kinematics** — Independent position-controlled front steering joints (`fr_left_steer_joint`, `fr_right_steer_joint`) with ±45° range; rear wheels velocity-controlled for drive
+-  **Parametric URDF/Xacro Model** — Full robot geometry with accurate inertia tensors, collision meshes, and Gazebo material properties for chassis, 4 wheels, 2 steering links, virtual steering wheel, and LiDAR
+-  **Gazebo Harmonic Simulation** — Spawns into a custom `lab.sdf` world using `ros_gz_sim`; event-driven controller startup sequence prevents race conditions at launch
+-  **GPU LiDAR Sensor** — 360° horizontal scan, 10 Hz, 0.15–12 m range, 360 samples/revolution with Gaussian noise, published to `/scan`
+-  **Custom Keyboard Teleoperation** — Dedicated `ackermann_teleop` Python package with its own `keyboard_teleop.py` node
+-  **Pre-Built Map** — Includes a ready-to-use map (`map.pgm` / `map.yaml` / `map.posegraph`) for instant Nav2 localization
+-  **Nav2 Autonomous Navigation** — Full `nav2_bringup` integration with a tuned `nav2_params.yaml` for Ackermann constraints
+-  **ros2_control + gz_ros2_control** — Hardware abstraction layer enabling clean simulation-to-hardware portability
+-  **Two-Package Workspace** — Clean separation between robot simulation (`ackermann_gazebo`) and teleoperation (`ackermann_teleop`)
 
 ---
 
@@ -68,138 +66,163 @@ This project is ideal for robotics students, researchers, and developers who wan
 
 ### Software
 
-| Component | Version / Notes |
+| Component | Version |
 |---|---|
-| **OS** | Ubuntu 22.04 LTS (Jammy Jellyfish) |
-| **ROS 2** | Humble Hawksbill (LTS) |
-| **Simulator** | Gazebo Classic 11 *or* Gazebo Sim (Fortress/Harmonic) |
+| **OS** | Ubuntu 24.04 LTS (Noble Numbat) |
+| **ROS 2** | Jazzy Jalisco (LTS) |
+| **Simulator** | Gazebo Harmonic |
 | **Build Tool** | `colcon` |
-| **Python** | 3.10+ |
+| **Python** | 3.12+ |
 | **C++ Standard** | C++17 |
 
-### Key ROS 2 Packages
+### ROS 2 Package Dependencies (from `package.xml`)
 
 | Package | Purpose |
 |---|---|
 | `robot_state_publisher` | Publishes TF tree from URDF |
-| `joint_state_publisher_gui` | Manual joint control in RViz2 |
-| `gazebo_ros_pkgs` | Gazebo–ROS 2 bridge |
-| `ros2_control` | Hardware abstraction layer |
-| `ackermann_msgs` | Ackermann steering message types |
-| `nav2_bringup` | Autonomous navigation stack |
+| `joint_state_publisher` / `joint_state_publisher_gui` | Joint state visualization |
+| `xacro` | URDF macro processing |
+| `ros_gz_sim` | Gazebo Harmonic ↔ ROS 2 launch bridge |
+| `ros_gz_bridge` | Topic bridging between Gazebo and ROS 2 |
+| `ros_gz_image` | Image topic bridge |
+| `gz_ros2_control` | Gazebo Harmonic hardware interface for ros2_control |
+| `ros2_control` / `controller_manager` | Hardware abstraction and controller lifecycle |
+| `ackermann_steering_controller` | Ackermann-specific ros2_controllers plugin |
+| `joint_state_broadcaster` | Joint state publisher controller |
+| `nav2_bringup` | Full autonomous navigation stack |
+| `nav2_amcl` | Adaptive Monte Carlo Localization |
+| `nav2_map_server` | Map serving for Nav2 |
 | `slam_toolbox` | Online SLAM for map building |
-| `teleop_twist_keyboard` | Keyboard teleoperation |
-
-### Hardware (for real-robot deployment)
-
-<!-- TODO: Fill in hardware details if targeting a physical platform -->
-
-| Component | Specification |
-|---|---|
-| Compute board | Raspberry Pi 4 / Jetson Nano (recommended) |
-| Drive motors | 2× DC motors (rear-wheel drive) |
-| Steering servo | 1× servo motor (front axle) |
-| LiDAR | RPLidar A1 / YDLIDAR (optional) |
-| IMU | MPU-6050 or similar (optional) |
+| `tf2`, `tf2_ros`, `tf2_geometry_msgs` | Transform library |
+| `rviz2` | 3D visualization |
 
 ---
 
 ## Project Architecture
 
-### ROS 2 Node Graph (Simplified)
+### ROS 2 Node & Topic Graph
 
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                        ROS 2 System                             │
-│                                                                  │
-│  ┌──────────────────┐     /cmd_vel or       ┌─────────────────┐ │
-│  │  Teleop / Nav2   │ ──/cmd_ackermann──▶  │  Ackermann       │ │
-│  │  (Twist pub)     │                       │  Controller      │ │
-│  └──────────────────┘                       │  Node            │ │
-│                                             └────────┬────────┘ │
-│                                                      │          │
-│                                         /joint_states│          │
-│                                                      ▼          │
-│  ┌───────────────────┐             ┌─────────────────────────┐  │
-│  │  robot_state_     │◀──/tf ──────│   Gazebo Simulation /   │  │
-│  │  publisher        │             │   ros2_control          │  │
-│  └───────────────────┘             └─────────────────────────┘  │
-│                                             │                    │
-│              /scan, /imu, /camera_raw       │                    │
-│  ┌───────────────────────────────────────◀─┘                    │
-│  │  RViz2  │  SLAM Toolbox  │  Nav2 Stack                       │
-│  └───────────────────────────────────────────────────────────┘  │
-└─────────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────────┐
+│                          ROS 2 System                                │
+│                                                                      │
+│  ┌─────────────────────┐   /ackermann_steering_controller/reference  │
+│  │  ackermann_teleop   │ ─────────────────────────────────────────▶  │
+│  │  keyboard_teleop.py │                                             │
+│  └─────────────────────┘                                             │
+│                                                                      │
+│  ┌────────────────────────────────────────────────────────────────┐  │
+│  │                  Gazebo Harmonic (lab.sdf)                      │  │
+│  │  ┌──────────────────────────────────────────────────────────┐  │  │
+│  │  │              bot_ackermann (URDF model)                   │  │  │
+│  │  │  chassis_link · fr_left/right_steer_link                  │  │  │
+│  │  │  fr/re_left/right_wheel_link                              │  │  │
+│  │  │  virtual_steer_link · gpu_lidar link                      │  │  │
+│  │  └──────────────────────────────────────────────────────────┘  │  │
+│  │     │ /joint_states   │ /scan    │ /odom    │ /tf               │  │
+│  └─────┼─────────────────┼──────────┼──────────┼───────────────────┘  │
+│        │                 │          │          │                      │
+│        ▼                 ▼          ▼          ▼                      │
+│  ┌───────────────┐  ┌─────────┐  ┌───────────────────────────────┐   │
+│  │ robot_state_  │  │  RViz2  │  │         Nav2 Stack            │   │
+│  │ publisher     │  │         │  │  (AMCL + Planner + Controller)│   │
+│  └───────────────┘  └─────────┘  └───────────────────────────────┘   │
+│        │ /tf                                  │ /cmd_vel              │
+│        ▼                                      ▼                      │
+│  ┌──────────────┐        ┌────────────────────────────┐              │
+│  │ SLAM Toolbox │        │ gz_ros2_control             │              │
+│  │  (mapping)   │        │ (hardware bridge)           │              │
+│  └──────────────┘        └────────────────────────────┘              │
+└──────────────────────────────────────────────────────────────────────┘
 ```
 
 ### Ackermann Steering Geometry
 
 ```
-          Front Axle
-    ┌───────────────────────┐
-    │  δ_inner   δ_outer    │
-    │    /            \     │
-    │   /              \    │
-    ├──/────────────────\───┤
-    │                       │  ← Wheelbase (L)
-    ├───────────────────────┤
-    │     Rear Axle         │
-    │  (fixed, drive)       │
-    └───────────────────────┘
-
-  δ_inner = atan(L / (R - d/2))
-  δ_outer = atan(L / (R + d/2))
-  where R = turning radius, d = track width
+               Front Axle   (wheelbase/2 = 0.1425 m ahead of centre)
+         ┌──────────────────────────────────────┐
+         │  fr_left_steer      fr_right_steer   │
+         │      /                      \        │
+         │     /    ±45° max steer      \       │
+         ├────/────────────────────────── \─────┤
+         │                                      │  Wheelbase = 0.285 m
+         ├──────────────────────────────────────┤
+         │   re_left_wheel       re_right_wheel  │
+         │           (rear axle — drive)         │
+         └──────────────────────────────────────┘
+                     Track Width = 0.280 m
 ```
+
+### Robot Physical Parameters (from `bot_sample.xacro`)
+
+| Parameter | Value |
+|---|---|
+| Robot Name | `maverick_quantum_xt` |
+| Body Length | 0.475 m |
+| Body Width | 0.210 m |
+| Body Height | 0.160 m |
+| Body Mass | 1.58 kg |
+| Wheelbase | 0.285 m |
+| Track Width | 0.280 m |
+| Wheel Radius | 0.055 m |
+| Wheel Thickness | 0.070 m |
+| Wheel Mass | 0.12 kg |
+| Steering Link Mass | 0.02 kg |
+| Max Steering Angle | ±45° (π/4 rad) |
+| LiDAR Radius | 0.035 m |
+| LiDAR Height | 0.055 m |
+| LiDAR Mass | 0.05 kg |
 
 ### Folder Structure
 
 ```
 Ros2_ackermann_robot/
-├── src/
-│   ├── ackermann_description/        # URDF/Xacro robot model
-│   │   ├── urdf/
-│   │   │   ├── robot.urdf.xacro      # Main robot description
-│   │   │   ├── chassis.xacro         # Chassis geometry & inertia
-│   │   │   ├── wheels.xacro          # Wheel links & joints
-│   │   │   └── sensors.xacro         # Sensor definitions
-│   │   ├── meshes/                   # 3D mesh files (.stl / .dae)
-│   │   ├── rviz/                     # RViz2 configuration files
-│   │   └── CMakeLists.txt
-│   │
-│   ├── ackermann_gazebo/             # Simulation world & launch
-│   │   ├── worlds/
-│   │   │   └── ackermann_world.world # Gazebo world file
-│   │   ├── launch/
-│   │   │   ├── gazebo.launch.py      # Launch Gazebo + spawn robot
-│   │   │   └── display.launch.py     # Launch RViz2 only
-│   │   ├── config/
-│   │   │   └── controllers.yaml      # ros2_control config
-│   │   └── CMakeLists.txt
-│   │
-│   ├── ackermann_controller/         # Steering kinematics node
-│   │   ├── ackermann_controller/
-│   │   │   ├── __init__.py
-│   │   │   └── controller_node.py    # Twist → Ackermann conversion
-│   │   ├── setup.py
-│   │   └── package.xml
-│   │
-│   └── ackermann_bringup/            # Top-level launch & params
-│       ├── launch/
-│       │   ├── bringup.launch.py     # Full system launch
-│       │   └── navigation.launch.py  # Nav2 + SLAM launch
-│       ├── config/
-│       │   ├── nav2_params.yaml      # Nav2 configuration
-│       │   └── slam_params.yaml      # SLAM Toolbox config
-│       └── CMakeLists.txt
-│
-├── .github/
-│   └── workflows/                    # CI/CD (if configured)
-├── LICENSE
-└── README.md
+└── src/
+    ├── ackermann_gazebo/                    # Main simulation package (ament_cmake)
+    │   ├── CMakeLists.txt
+    │   ├── package.xml
+    │   ├── urdf/
+    │   │   ├── vehicle.urdf.xacro           # Top-level robot entry point
+    │   │   ├── bot.xacro                    # Core robot structure
+    │   │   ├── bot_sample.xacro             # Full parametric robot model
+    │   │   └── gz_ackermann_core.xacro      # Gazebo plugin definitions
+    │   ├── launch/
+    │   │   ├── robot.launch.py              # Gazebo simulation launch
+    │   │   └── navigation.launch.py         # Nav2 navigation launch
+    │   ├── config/
+    │   │   ├── gz_ros2_control.yaml         # ros2_control controller config
+    │   │   ├── nav2_params.yaml             # Nav2 stack parameters
+    │   │   ├── mapper_params_online_async.yaml  # SLAM Toolbox config
+    │   │   ├── robot_params.yaml            # Robot-level parameters
+    │   │   └── ros_gz_bridge.yaml           # Gazebo ↔ ROS 2 topic bridge
+    │   ├── worlds/
+    │   │   └── lab.sdf                      # Simulation world (SDF format)
+    │   ├── maps/
+    │   │   ├── map.pgm                      # Pre-built occupancy grid image
+    │   │   ├── map.yaml                     # Map metadata
+    │   │   ├── map.data                     # SLAM Toolbox map data
+    │   │   └── map.posegraph                # SLAM pose graph
+    │   ├── meshes/
+    │   │   └── lidar/                       # LiDAR mesh assets
+    │   ├── include/
+    │   │   └── ackermann_gazebo/            # C++ headers (reserved)
+    │   └── src/                             # C++ source (reserved)
+    │
+    └── ackermann_teleop/                    # Keyboard teleoperation (ament_python)
+        ├── package.xml
+        ├── setup.py
+        ├── setup.cfg
+        ├── resource/
+        │   └── ackermann_teleop
+        ├── ackermann_teleop/
+        │   ├── __init__.py
+        │   └── keyboard_teleop.py           # Keyboard teleoperation node
+        └── test/
+            ├── test_copyright.py
+            ├── test_flake8.py
+            ├── test_pep257.py
+            └── test_xmllint.py
 ```
-
-> ⚠️ **Note:** The folder structure above is based on standard ROS 2 package conventions for this project type. Run `tree -L 3 src/` in your workspace to verify exact paths and update this section accordingly.
 
 ---
 
@@ -207,28 +230,40 @@ Ros2_ackermann_robot/
 
 ### Prerequisites
 
-Ensure the following are installed before proceeding:
+Ensure the following are installed on **Ubuntu 24.04 LTS**.
 
-1. **Ubuntu 22.04 LTS**
-2. **ROS 2 Humble** — [Installation Guide](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html)
-3. **Gazebo Classic 11**
-4. **colcon** build tool
+#### 1. Install ROS 2 Jazzy
 
 ```bash
-# Install ROS 2 Humble (if not already installed)
-sudo apt update && sudo apt install -y ros-humble-desktop
+sudo apt update && sudo apt install -y software-properties-common curl
+sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key \
+  -o /usr/share/keyrings/ros-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) \
+  signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] \
+  http://packages.ros.org/ros2/ubuntu noble main" | \
+  sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
+sudo apt update
+sudo apt install -y ros-jazzy-desktop
+```
 
-# Install Gazebo and ROS-Gazebo bridge
-sudo apt install -y gazebo ros-humble-gazebo-ros-pkgs
+#### 2. Install Gazebo Harmonic + ROS Bridge
 
-# Install colcon
-sudo apt install -y python3-colcon-common-extensions
+```bash
+sudo apt install -y ros-jazzy-ros-gz
+```
 
-# Install rosdep
-sudo apt install -y python3-rosdep
+#### 3. Install Build Tools
+
+```bash
+sudo apt install -y \
+  python3-colcon-common-extensions \
+  python3-rosdep \
+  python3-vcstool
 sudo rosdep init
 rosdep update
 ```
+
+---
 
 ### Step 1 — Create a ROS 2 Workspace
 
@@ -244,27 +279,29 @@ cd ~/ros2_ws/src
 git clone https://github.com/Balakarthik15/Ros2_ackermann_robot.git
 ```
 
-### Step 3 — Install Dependencies
+### Step 3 — Install ROS Dependencies
 
 ```bash
 cd ~/ros2_ws
-
-# Install all ROS dependencies declared in package.xml files
 rosdep install --from-paths src --ignore-src -r -y
 ```
 
-Install additional required packages:
+Install additional controller and navigation packages manually:
 
 ```bash
 sudo apt install -y \
-  ros-humble-ros2-control \
-  ros-humble-ros2-controllers \
-  ros-humble-ackermann-msgs \
-  ros-humble-nav2-bringup \
-  ros-humble-slam-toolbox \
-  ros-humble-teleop-twist-keyboard \
-  ros-humble-joint-state-publisher-gui \
-  ros-humble-xacro
+  ros-jazzy-ros2-control \
+  ros-jazzy-ros2-controllers \
+  ros-jazzy-gz-ros2-control \
+  ros-jazzy-ackermann-steering-controller \
+  ros-jazzy-joint-state-broadcaster \
+  ros-jazzy-nav2-bringup \
+  ros-jazzy-nav2-amcl \
+  ros-jazzy-nav2-map-server \
+  ros-jazzy-slam-toolbox \
+  ros-jazzy-xacro \
+  ros-jazzy-joint-state-publisher-gui \
+  ros-jazzy-rviz2
 ```
 
 ### Step 4 — Build the Workspace
@@ -277,9 +314,11 @@ colcon build --symlink-install
 ### Step 5 — Source the Workspace
 
 ```bash
+source /opt/ros/jazzy/setup.bash
 source ~/ros2_ws/install/setup.bash
 
-# Optional: add to .bashrc for persistence
+# Persist across terminals
+echo "source /opt/ros/jazzy/setup.bash" >> ~/.bashrc
 echo "source ~/ros2_ws/install/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 ```
@@ -288,185 +327,211 @@ source ~/.bashrc
 
 ## Usage Instructions
 
-### 1. Launch the Simulation (Gazebo + Robot Spawn)
+### 1. Launch the Robot Simulation (Gazebo Harmonic)
 
 ```bash
-ros2 launch ackermann_gazebo gazebo.launch.py
+ros2 launch ackermann_gazebo robot.launch.py
 ```
 
-This will:
-- Start Gazebo with the configured world
-- Spawn the Ackermann robot
-- Launch `robot_state_publisher` and `ros2_control` nodes
+This single launch file performs the full startup sequence:
 
-### 2. Visualise in RViz2
+1. Kills any lingering `gz` processes
+2. Launches **Gazebo Harmonic** with `lab.sdf`
+3. Processes `vehicle.urdf.xacro` and spawns `bot_ackermann`
+4. Starts `robot_state_publisher` and `ros_gz_bridge`
+5. Activates `joint_state_broadcaster` (triggered after spawn completes)
+6. Activates `ackermann_steering_controller` (triggered after joint broadcaster is active)
+
+Override spawn position with launch arguments:
 
 ```bash
-# In a new terminal
-source ~/ros2_ws/install/setup.bash
-ros2 launch ackermann_description display.launch.py
+ros2 launch ackermann_gazebo robot.launch.py \
+  x:=1.0 y:=2.0 z:=0.2 Y:=1.57
 ```
 
-### 3. Keyboard Teleoperation
+### 2. Keyboard Teleoperation
+
+In a new terminal:
 
 ```bash
-# In a new terminal
-source ~/ros2_ws/install/setup.bash
-ros2 run teleop_twist_keyboard teleop_twist_keyboard
+ros2 run ackermann_teleop keyboard_teleop
 ```
 
-Use the following keys to control the robot:
+The node sends commands directly to the Ackermann steering controller. Key bindings are printed to the terminal on startup.
 
-| Key | Action |
-|-----|--------|
-| `i` | Move forward |
-| `,` | Move backward |
-| `j` | Turn left |
-| `l` | Turn right |
-| `k` | Stop |
-| `q` / `z` | Increase / decrease max speed |
+### 3. Visualise in RViz2
 
-### 4. Launch the Full Navigation Stack (Nav2 + SLAM)
+```bash
+rviz2
+```
+
+Recommended displays to add:
+
+| Display | Topic |
+|---|---|
+| RobotModel | `/robot_description` |
+| TF | *(auto)* |
+| LaserScan | `/scan` |
+| Odometry | `/odom` |
+| Map | `/map` *(Nav2 only)* |
+
+### 4. Build a Map with SLAM Toolbox
 
 ```bash
 # Terminal 1: Start simulation
-ros2 launch ackermann_gazebo gazebo.launch.py
+ros2 launch ackermann_gazebo robot.launch.py
 
-# Terminal 2: Start navigation
-ros2 launch ackermann_bringup navigation.launch.py
+# Terminal 2: Start SLAM Toolbox
+ros2 launch slam_toolbox online_async_launch.py \
+  params_file:=src/ackermann_gazebo/config/mapper_params_online_async.yaml \
+  use_sim_time:=true
+
+# Terminal 3: Drive around to explore the environment
+ros2 run ackermann_teleop keyboard_teleop
+
+# Terminal 4: Save the map when satisfied
+ros2 run nav2_map_server map_saver_cli \
+  -f src/ackermann_gazebo/maps/map
 ```
 
-Then open RViz2 and use the **2D Goal Pose** tool to send navigation goals.
+### 5. Autonomous Navigation with Nav2 (Pre-Built Map)
 
-### 5. Inspect the Robot Model Only (No Simulation)
+A complete map is already included under `ackermann_gazebo/maps/`.
 
 ```bash
-ros2 launch ackermann_description display.launch.py
+# Terminal 1: Start simulation
+ros2 launch ackermann_gazebo robot.launch.py
+
+# Terminal 2: Start Nav2
+ros2 launch ackermann_gazebo navigation.launch.py
 ```
 
-Use the **Joint State Publisher GUI** sliders to inspect joint kinematics.
+Then in **RViz2**:
+1. Click **2D Pose Estimate** → click on the map to set the robot's initial position
+2. Click **2D Goal Pose** → click anywhere on the map to send a navigation goal
 
 ---
 
 ## Configuration
 
-### Robot Parameters (`ackermann_description/urdf/robot.urdf.xacro`)
+### ros2_control Controllers (`config/gz_ros2_control.yaml`)
 
-| Parameter | Default | Description |
-|---|---|---|
-| `wheelbase` | `0.30 m` | Distance between front and rear axles |
-| `track_width` | `0.22 m` | Distance between left and right wheels |
-| `wheel_radius` | `0.05 m` | Radius of each wheel |
-| `wheel_width` | `0.04 m` | Width of each wheel |
-| `max_steer_angle` | `0.52 rad (~30°)` | Maximum steering angle |
+The `ackermann_steering_controller` manages:
+- **Front steering joints** (`fr_left_steer_joint`, `fr_right_steer_joint`) — position command interface
+- **Rear drive wheels** (`re_left_wheel_joint`, `re_right_wheel_joint`) — velocity command interface
 
-> <!-- TODO: Verify these values against your actual URDF parameters -->
-
-### Controller Configuration (`ackermann_gazebo/config/controllers.yaml`)
+Key parameters to verify match your URDF values:
 
 ```yaml
-controller_manager:
-  ros__parameters:
-    update_rate: 100  # Hz
-
 ackermann_steering_controller:
   ros__parameters:
-    front_steering_joints:
-      - front_left_steering_joint
-      - front_right_steering_joint
-    rear_drive_joints:
-      - rear_left_wheel_joint
-      - rear_right_wheel_joint
-    wheelbase: 0.30
-    track_width: 0.22
-    wheel_radius: 0.05
+    wheelbase: 0.285       # metres — must match URDF
+    track_width: 0.280     # metres — must match URDF
+    wheel_radius: 0.055    # metres — must match URDF
 ```
 
-### Nav2 Parameters (`ackermann_bringup/config/nav2_params.yaml`)
+### Gazebo ↔ ROS 2 Bridge (`config/ros_gz_bridge.yaml`)
 
-Key parameters to tune for Ackermann-type robots:
+Defines topic bridging between Gazebo Harmonic and ROS 2. Add new sensor or plugin topics here as the robot model grows.
+
+### Nav2 Parameters (`config/nav2_params.yaml`)
+
+Key tuning note for Ackermann robots — the minimum turning radius is a hard physical constraint:
+
+```
+min_turning_radius = wheelbase / tan(max_steering_angle)
+                   = 0.285 / tan(45°)
+                   ≈ 0.285 m
+```
+
+Ensure this value is set correctly in the Nav2 controller plugin configuration to prevent the planner from generating infeasible paths.
+
+### SLAM Toolbox (`config/mapper_params_online_async.yaml`)
+
+Configured for online asynchronous mapping. Always ensure:
 
 ```yaml
-controller_server:
-  ros__parameters:
-    controller_plugins: ["FollowPath"]
-    FollowPath:
-      plugin: "nav2_regulated_pure_pursuit_controller::RegulatedPurePursuitController"
-      min_turning_radius: 0.40   # Must match physical constraints
-      use_regulated_linear_velocity_scaling: true
+use_sim_time: true   # Required when running with Gazebo
 ```
+
+### Robot Parameters (`config/robot_params.yaml`)
+
+Stores runtime-accessible robot-level parameters. Update this file when changing physical robot dimensions or sensor configuration.
 
 ---
 
-## ROS 2 Topics, Services & Parameters
+## ROS 2 Topics, Services & TF Tree
 
 ### Published Topics
 
-| Topic | Message Type | Description |
-|---|---|---|
-| `/joint_states` | `sensor_msgs/JointState` | Current joint positions and velocities |
-| `/tf` | `tf2_msgs/TFMessage` | Robot transform tree |
-| `/odom` | `nav_msgs/Odometry` | Robot odometry from simulation |
-| `/scan` | `sensor_msgs/LaserScan` | LiDAR scan data |
-| `/imu/data` | `sensor_msgs/Imu` | IMU readings |
-| `/camera/image_raw` | `sensor_msgs/Image` | Raw camera image |
+| Topic | Message Type | Source | Description |
+|---|---|---|---|
+| `/joint_states` | `sensor_msgs/JointState` | Gazebo JointStatePublisher plugin | All 7 joint positions and velocities at 100 Hz |
+| `/tf` / `/tf_static` | `tf2_msgs/TFMessage` | `robot_state_publisher` + controllers | Full transform tree |
+| `/odom` | `nav_msgs/Odometry` | `ackermann_steering_controller` | Wheel odometry |
+| `/scan` | `sensor_msgs/LaserScan` | GPU LiDAR (Gazebo) | 360° LiDAR at 10 Hz, 0.15–12 m range |
+| `/robot_description` | `std_msgs/String` | `robot_state_publisher` | Processed URDF string |
+| `/map` | `nav_msgs/OccupancyGrid` | SLAM Toolbox / `map_server` | Occupancy grid map |
 
 ### Subscribed Topics
 
-| Topic | Message Type | Description |
-|---|---|---|
-| `/cmd_vel` | `geometry_msgs/Twist` | Velocity commands (Twist → Ackermann) |
-| `/cmd_ackermann` | `ackermann_msgs/AckermannDriveStamped` | Direct Ackermann commands |
+| Topic | Message Type | Subscriber | Description |
+|---|---|---|---|
+| `/ackermann_steering_controller/reference` | `ackermann_msgs/AckermannDrive` | Ackermann controller | Speed + steering angle commands |
+| `/cmd_vel` | `geometry_msgs/Twist` | Nav2 → controller bridge | Velocity commands from Nav2 planner |
 
-### Key Services
+### Active Controllers
 
-| Service | Type | Description |
+```bash
+# Verify at runtime after launching simulation:
+ros2 control list_controllers
+```
+
+| Controller | Type | State |
 |---|---|---|
-| `/spawn_entity` | `gazebo_msgs/SpawnEntity` | Spawn model in Gazebo |
-| `/delete_entity` | `gazebo_msgs/DeleteEntity` | Remove model from Gazebo |
+| `joint_state_broadcaster` | `JointStateBroadcaster` | active |
+| `ackermann_steering_controller` | `AckermannSteeringController` | active |
+
+### TF Tree (from `view_frames` output)
+
+```
+odom  (50.5 Hz)
+└── base_footprint
+    └── base_link
+        └── chassis_link  (static)
+            ├── bot_ackermann/base_footprint/gpu_lidar  (static)
+            ├── fr_left_steer_link   (20.5 Hz)
+            │   └── fr_left_wheel_link
+            ├── fr_right_steer_link  (20.5 Hz)
+            │   └── fr_right_wheel_link
+            ├── re_left_wheel_link   (20.5 Hz)
+            ├── re_right_wheel_link  (20.5 Hz)
+            └── virtual_steer_link   (20.5 Hz)
+```
 
 ---
 
-## Screenshots & Demo
-
-<!-- TODO: Add actual screenshots and/or a demo GIF/video link -->
-
-### Gazebo Simulation
-
-> 📸 **[Add screenshot of the robot in Gazebo here]**
->
-> Example: `![Gazebo Simulation](docs/images/gazebo_sim.png)`
-
-### RViz2 Visualisation
-
-> 📸 **[Add RViz2 screenshot showing TF tree, laser scan, and robot model]**
->
-> Example: `![RViz2 View](docs/images/rviz2_view.png)`
-
-### Autonomous Navigation
-
-> 🎬 **[Add GIF or link to a demo video of Nav2 autonomous navigation]**
->
-> Example: `[![Demo Video](docs/images/nav2_thumb.png)](https://youtu.be/YOUR_VIDEO_ID)`
-
----
 
 ## Roadmap
 
 | Status | Feature |
 |--------|---------|
-| ✅ | URDF/Xacro robot model |
-| ✅ | Gazebo simulation with ros2_control |
-| ✅ | Keyboard teleoperation |
-| ✅ | Ackermann kinematics node |
-| 🔄 | Nav2 autonomous navigation integration |
-| 🔄 | SLAM-based map generation |
-| 🔲 | Real hardware deployment guide |
+| ✅ | Parametric URDF/Xacro robot model (`maverick_quantum_xt`) |
+| ✅ | Gazebo Harmonic simulation with `gz_ros2_control` |
+| ✅ | Ackermann Steering Controller (position steering + velocity drive) |
+| ✅ | GPU LiDAR sensor (360°, 10 Hz, `/scan`) |
+| ✅ | Custom keyboard teleoperation node (`ackermann_teleop`) |
+| ✅ | Pre-built SLAM map included (`maps/`) |
+| ✅ | Nav2 bringup integration |
+| ✅ | SLAM Toolbox online async mapping |
+| 🔄 | RViz2 `.rviz` config file for one-click visualization |
+| 🔄 | Fix hardcoded paths in `navigation.launch.py` |
+| 🔄 | Joystick / gamepad teleoperation |
+| 🔲 | Real hardware deployment guide (Raspberry Pi / Jetson) |
 | 🔲 | Docker / Dev Container support |
-| 🔲 | CI/CD with GitHub Actions |
-| 🔲 | Joystick (gamepad) teleoperation |
-| 🔲 | Path recording and playback |
-| 🔲 | Dynamic obstacle avoidance tuning |
+| 🔲 | GitHub Actions CI/CD pipeline |
+| 🔲 | Camera sensor plugin and image topic integration |
+| 🔲 | Path recording and playback node |
 
 > ✅ Done · 🔄 In Progress · 🔲 Planned
 
@@ -482,54 +547,59 @@ Contributions are welcome! Please follow these steps:
    git checkout -b feature/your-feature-name
    ```
 3. **Make your changes** following the existing code style
-4. **Test** your changes (see [Testing](#testing))
-5. **Commit** with a clear message
+4. **Run lint tests** (see [Testing](#testing))
+5. **Commit** with a descriptive message
    ```bash
    git commit -m "feat: add joystick teleoperation support"
    ```
-6. **Push** to your fork
-   ```bash
-   git push origin feature/your-feature-name
-   ```
-7. **Open a Pull Request** against the `main` branch
+6. **Push** to your fork and **open a Pull Request** against `main`
 
 ### Code Style Guidelines
 
-- Python: Follow [PEP 8](https://pep8.org/); use `ruff` or `flake8` for linting
-- C++: Follow [ROS 2 C++ Style Guide](https://docs.ros.org/en/humble/The-ROS2-Project/Contributing/Code-Style-Language-Versions.html)
-- Commit messages: Use [Conventional Commits](https://www.conventionalcommits.org/) format
+- **Python**: Follow [PEP 8](https://pep8.org/) — enforced by `test_flake8.py` and `test_pep257.py`
+- **C++**: Follow the [ROS 2 C++ Style Guide](https://docs.ros.org/en/jazzy/The-ROS2-Project/Contributing/Code-Style-Language-Versions.html)
+- **Commit messages**: Use [Conventional Commits](https://www.conventionalcommits.org/) (`feat:`, `fix:`, `docs:`, `chore:`)
+- **Copyright headers**: Required in all source files — enforced by `test_copyright.py`
 
-Please open an issue first if you plan a large change, to discuss the approach.
+Please open an issue before starting large changes to discuss the approach.
 
 ---
 
 ## Testing
 
-### Verify the URDF Model
+### Lint & Style Tests (`ackermann_teleop`)
+
+The `ackermann_teleop` package includes automated tests covering style and XML validation:
 
 ```bash
-# Check URDF for errors
-ros2 run xacro xacro src/ackermann_description/urdf/robot.urdf.xacro > /tmp/robot.urdf
+cd ~/ros2_ws
+colcon test --packages-select ackermann_teleop
+colcon test-result --verbose
+```
+
+This runs:
+
+| Test File | Checks |
+|---|---|
+| `test_copyright.py` | Copyright headers present in all source files |
+| `test_flake8.py` | Python style and error linting (PEP 8) |
+| `test_pep257.py` | Python docstring conventions |
+| `test_xmllint.py` | XML and launch file validity |
+
+### Validate the URDF
+
+```bash
+ros2 run xacro xacro \
+  src/ackermann_gazebo/urdf/vehicle.urdf.xacro > /tmp/robot.urdf
 check_urdf /tmp/robot.urdf
 ```
 
-### Verify TF Tree
+### Verify TF Tree at Runtime
 
 ```bash
-# After launching simulation, in a new terminal:
+# After launching simulation in another terminal:
 ros2 run tf2_tools view_frames
-evince frames.pdf   # or xdg-open frames.pdf
-```
-
-### Verify Active Topics
-
-```bash
-# List all active topics
-ros2 topic list
-
-# Echo a specific topic
-ros2 topic echo /joint_states
-ros2 topic echo /odom
+# Opens frames.pdf — should match the TF tree documented above
 ```
 
 ### Verify Controller Status
@@ -539,75 +609,73 @@ ros2 control list_controllers
 ros2 control list_hardware_interfaces
 ```
 
-### Publish a Test Command
+### Send Test Commands
 
 ```bash
-# Send a direct velocity command
-ros2 topic pub /cmd_vel geometry_msgs/msg/Twist \
-  "{ linear: { x: 0.3 }, angular: { z: 0.2 } }" --once
-
 # Send a direct Ackermann command
-ros2 topic pub /cmd_ackermann ackermann_msgs/msg/AckermannDriveStamped \
-  "{ drive: { speed: 0.3, steering_angle: 0.2 } }" --once
-```
+ros2 topic pub /ackermann_steering_controller/reference \
+  ackermann_msgs/msg/AckermannDrive \
+  "{ speed: 0.3, steering_angle: 0.3 }" --once
 
-> <!-- TODO: Add unit tests (pytest / ament_cmake_pytest) if they exist in the repo -->
+# Verify odometry response
+ros2 topic echo /odom --once
+
+# Check LiDAR publish rate
+ros2 topic hz /scan
+```
 
 ---
 
 ## Known Issues & Limitations
 
-| Issue | Description | Workaround |
+| Issue | Description | Workaround / Fix |
 |---|---|---|
-| Gazebo lag at startup | Robot may drift slightly before controllers initialise | Wait 3–5 seconds after launch before sending commands |
-| `cmd_vel` to Ackermann conversion | Twist's `angular.z` is approximated; not exact for all radii | Use `/cmd_ackermann` directly for precise control |
-| Nav2 min turning radius | Nav2 may plan paths that violate the robot's physical turning radius | Tune `min_turning_radius` in `nav2_params.yaml` |
-| No real hardware interface | The current implementation is simulation-only | A hardware bridge (e.g., via serial/ROS-serial) is needed for deployment |
-
-> <!-- TODO: Add any additional known issues specific to your implementation -->
+| **Hardcoded package path** | `navigation.launch.py` uses `pkg_ackermann_bringup = "/home/karthik/..."` — an absolute path that breaks on other machines | Replace with `get_package_share_directory('ackermann_gazebo')` |
+| **Commented-out AMCL / map_server nodes** | `amcl_node` and `map_server_node` in `navigation.launch.py` are commented out | Uncomment and configure when switching from SLAM to AMCL localisation |
+| **`pkill -9 gz` on startup** | `robot.launch.py` kills all `gz` processes before launching — may affect unrelated Gazebo instances | Remove `cleanup_gz` action for multi-simulation or production environments |
+| **Simulation-only** | The hardware plugin is `gz_ros2_control/GazeboSimSystem` — no real hardware interface exists yet | A serial or CAN hardware bridge would be needed for physical deployment |
+| **`virtual_steer_link` not actuated** | `virtual_steer_link` is a visual-only element and is not part of the `ros2_control` interface | By design; represents a display element — can be hidden in RViz2 if needed |
+| **No RViz2 config file** | The repository does not include a `.rviz` config file — displays must be set up manually | Planned for a future release |
 
 ---
 
 ## License
 
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+<!-- TODO: Add a LICENSE file to the repository root and update package.xml -->
 
-```
-MIT License
+This project does not yet declare an explicit license in `package.xml`. It is recommended to add an open-source license before public release.
 
-Copyright (c) 2024 Balakarthik15
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction...
-```
+Suggested steps:
+1. Choose a license — [MIT](https://opensource.org/licenses/MIT) or [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) are common in ROS 2 projects
+2. Add a `LICENSE` file to the repository root
+3. Update `package.xml`: `<license>MIT</license>`
+4. Add copyright headers to all source files (required by `test_copyright.py`)
 
 ---
 
 ## Acknowledgements
 
-- [ROS 2 Documentation](https://docs.ros.org/en/humble/) — The official ROS 2 Humble reference
-- [ros2_controllers](https://github.com/ros-controls/ros2_controllers) — Ackermann steering controller library
+- [ROS 2 Jazzy Documentation](https://docs.ros.org/en/jazzy/) — Official ROS 2 Jazzy reference
+- [Gazebo Harmonic Documentation](https://gazebosim.org/docs/harmonic/) — Next-generation Gazebo simulator
+- [gz_ros2_control](https://github.com/ros-controls/gz_ros2_control) — Gazebo Harmonic hardware interface for ros2_control
+- [ros2_controllers — Ackermann Steering Controller](https://control.ros.org/master/doc/ros2_controllers/ackermann_steering_controller/doc/userdoc.html)
 - [Nav2 Project](https://navigation.ros.org/) — Navigation 2 stack for ROS 2
-- [SLAM Toolbox](https://github.com/SteveMacenski/slam_toolbox) — Online SLAM for ROS 2
-- [Gazebo Simulator](https://gazebosim.org/) — Open-source robot simulation
-
-> <!-- TODO: Add any academic papers, tutorials, or people who inspired or assisted this project -->
+- [SLAM Toolbox](https://github.com/SteveMacenski/slam_toolbox) — Online SLAM for ROS 2 by Steve Macenski
 
 ---
 
 ## Contact
 
-**Balakarthik** — Project Author & Maintainer
+**Karthik** — Project Author & Maintainer
 
 - 🐙 GitHub: [@Balakarthik15](https://github.com/Balakarthik15)
-- 📧 Email: <!-- TODO: Add your email address -->
-- 💼 LinkedIn: <!-- TODO: Add your LinkedIn profile URL -->
+- 📧 Email: [msbkarthik1511@gmail.com](mailto:msbkarthik1511@gmail.com)
+- 💼 LinkedIn: [linkedin.com/in/balakarthiksenthilvelpalani](https://www.linkedin.com/in/balakarthiksenthilvelpalani/)
 
-> Found a bug? [Open an issue](https://github.com/Balakarthik15/Ros2_ackermann_robot/issues/new) — contributions and feedback are always welcome!
+> Found a bug or have a feature request? [Open an issue](https://github.com/Balakarthik15/Ros2_ackermann_robot/issues/new) — contributions and feedback are always welcome!
 
 ---
 
 <div align="center">
-  <sub>Built with ❤️ using ROS 2 · Gazebo · Python · C++</sub>
+  <sub>Built with ❤️ using ROS 2 Jazzy · Gazebo Harmonic · Python · C++</sub>
 </div>
