@@ -1,1 +1,0 @@
-/home/karthik/Ros2_ackermann_robot/src/ackermann_teleop/setup.py

@@ -1,9 +1,0 @@
-source;share/ackermann_teleop/hook/pythonpath.ps1
-source;share/ackermann_teleop/hook/pythonpath.dsv
-source;share/ackermann_teleop/hook/pythonpath.sh
-source;share/ackermann_teleop/hook/ament_prefix_path.ps1
-source;share/ackermann_teleop/hook/ament_prefix_path.dsv
-source;share/ackermann_teleop/hook/ament_prefix_path.sh
-source;../../build/ackermann_teleop/share/ackermann_teleop/hook/pythonpath_develop.ps1
-source;../../build/ackermann_teleop/share/ackermann_teleop/hook/pythonpath_develop.dsv
-source;../../build/ackermann_teleop/share/ackermann_teleop/hook/pythonpath_develop.sh

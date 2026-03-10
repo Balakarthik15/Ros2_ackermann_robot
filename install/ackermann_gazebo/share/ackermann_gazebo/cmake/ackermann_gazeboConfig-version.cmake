@@ -1,1 +1,0 @@
-/home/karthik/Ros2_ackermann_robot/build/ackermann_gazebo/ament_cmake_core/ackermann_gazeboConfig-version.cmake

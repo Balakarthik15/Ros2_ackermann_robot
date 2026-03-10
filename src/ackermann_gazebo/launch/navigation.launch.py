@@ -22,9 +22,10 @@ def generate_launch_description():
         launch_arguments={
             'use_sim_time': use_sim_time,
             'autostart': autostart,
-            'map': os.path.join( pkg_ackermann_bringup, 'maps', 'map.yaml'),
-            'params_file': os.path.join( pkg_ackermann_bringup, 'config', 'nav2_params.yaml'),
-            'package_path':  pkg_ackermann_bringup, 
+            'map': os.path.join(pkg_ackermann_bringup, 'maps', 'map.yaml'),
+            'params_file': os.path.join(pkg_ackermann_bringup, 'config', 'nav2_params.yaml'),
+            'use_composition': 'True',
+            'use_respawn': 'False',
         }.items()
     )
     
