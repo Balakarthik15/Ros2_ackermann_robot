@@ -12,7 +12,7 @@ def generate_launch_description():
 
     pkg_ackermann_bringup ="/home/karthik/Ros2_ackermann_robot/src/ackermann_gazebo"
 
-    use_sim_time = LaunchConfiguration('use_sim_time', default='true')
+    use_sim_time = LaunchConfiguration('use_sim_time', default='True')
     autostart = LaunchConfiguration('autostart', default='True')
 
     nav2_launch_cmd = IncludeLaunchDescription(

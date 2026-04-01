@@ -1,111 +1,78 @@
+#!/usr/bin/env python3
+
 import rclpy
 from rclpy.node import Node
-from geometry_msgs.msg import TwistStamped
-
+from geometry_msgs.msg import Twist  # Changed import
 import sys
 import termios
 import tty
-import time
-import select
 
-
-class KeyboardTeleop(Node):
+class AckermannTeleop(Node):
     def __init__(self):
-        super().__init__('keyboard_teleop')
-
-        # Publish to Ackermann controller reference topic
-        self.cmd_pub = self.create_publisher(
-            TwistStamped,
-            '/ackermann_steering_controller/reference',
+        super().__init__('ackermann_teleop')
+        self.pub = self.create_publisher(
+            Twist,                   # Changed message type
+            '/cmd_vel',
             10
         )
 
-        self.velocity = 0.0
+        self.speed = 0.0
         self.steering = 0.0
 
-        # tuning parameters
-        self.vel_step = 0.1
-        self.steer_step = 0.1
-
-        self.max_vel = 2.0
-        self.max_steer = 0.6  # radians
-
         self.get_logger().info(
-            "Controls: W/S velocity  | A/D steering | SPACE stop | Ctrl+C quit"
+            "Ackermann Teleop Started (Using Twist)\n"
+            "W/S : Forward / Backward\n"
+            "A/D : Left / Right\n"
+            "Space : Stop\n"
+            "Ctrl+C to quit"
         )
 
-    def publish_once(self):
-        msg = TwistStamped()
+        self.timer = self.create_timer(0.1, self.publish_cmd)
+        self.settings = termios.tcgetattr(sys.stdin)
 
-        msg.header.stamp = self.get_clock().now().to_msg()
-        msg.header.frame_id = "base_footprint"
+    def get_key(self):
+        tty.setraw(sys.stdin.fileno())
+        key = sys.stdin.read(1)
+        termios.tcsetattr(sys.stdin, termios.TCSADRAIN, self.settings)
+        return key
 
-        msg.twist.linear.x = float(self.velocity)
-        msg.twist.angular.z = float(self.steering)
+    def publish_cmd(self):
+        # Note: This get_key() approach inside a timer might feel "stuttery"
+        # because it waits for a key press every 0.1s.
+        key = self.get_key()
 
-        self.cmd_pub.publish(msg)
+        if key == 'w':
+            self.speed += 0.2
+        elif key == 's':
+            self.speed -= 0.2
+        elif key == 'a':
+            self.steering += 0.1
+        elif key == 'd':
+            self.steering -= 0.1
+        elif key == ' ':
+            self.speed = 0.0
+            self.steering = 0.0
+        elif key == '\x03': # Handles Ctrl+C properly
+            rclpy.shutdown()
+            sys.exit()
 
-    def clamp(self):
-        self.velocity = max(-self.max_vel, min(self.max_vel, self.velocity))
-        self.steering = max(-self.max_steer, min(self.max_steer, self.steering))
-
-    def run(self):
-        old_settings = termios.tcgetattr(sys.stdin)
-
-        try:
-            tty.setcbreak(sys.stdin.fileno())
-            last_pub = time.time()
-
-            while rclpy.ok():
-
-                # publish continuously at 10 Hz
-                now = time.time()
-                if now - last_pub >= 0.1:
-                    self.publish_once()
-                    last_pub = now
-
-                # let ROS process internal events
-                rclpy.spin_once(self, timeout_sec=0.0)
-
-                # non-blocking key read
-                if sys.stdin in select.select([sys.stdin], [], [], 0)[0]:
-                    key = sys.stdin.read(1)
-
-                    if key == 'w':
-                        self.velocity += self.vel_step
-                    elif key == 's':
-                        self.velocity -= self.vel_step
-                    elif key == 'a':
-                        self.steering += self.steer_step
-                    elif key == 'd':
-                        self.steering -= self.steer_step
-                    elif key == ' ':
-                        self.velocity = 0.0
-                        self.steering = 0.0
-
-                    self.clamp()
-
-                    self.get_logger().info(
-                        f"velocity={self.velocity:.2f}, steering={self.steering:.2f}"
-                    )
-
-        finally:
-            termios.tcsetattr(sys.stdin, termios.TCSADRAIN, old_settings)
-
+        # Create and fill the Twist message
+        msg = Twist()
+        msg.linear.x = self.speed      # Map speed to linear x
+        msg.angular.z = self.steering   # Map steering to angular z
+        
+        self.pub.publish(msg)
 
 def main():
     rclpy.init()
-
-    node = KeyboardTeleop()
-
+    node = AckermannTeleop()
     try:
-        node.run()
-    except KeyboardInterrupt:
+        rclpy.spin(node)
+    except (KeyboardInterrupt, SystemExit):
         pass
-
-    node.destroy_node()
-    rclpy.shutdown()
-
+    finally:
+        node.destroy_node()
+        rclpy.shutdown()
 
 if __name__ == '__main__':
     main()
